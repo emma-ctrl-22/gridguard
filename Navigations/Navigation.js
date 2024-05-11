@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,useColorScheme } from '@react-navigation/native';
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 //import { useContext } from 'react';
@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function Navigations() {
   //const { isLoading, userToken,userInfo } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
-  const [userToken, setUserToken] = useState(null);
+  const [userToken, setUserToken] = useState(true);
   const [userInfo, setUserInfo] = useState({
     username: "Emmanuel",
     email:"emmanuelnyatepe35@gmail.com"
