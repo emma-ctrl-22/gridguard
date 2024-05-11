@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 import React from 'react'
 
 const Login = () => {
   return (
     <View style={styles.container}>
       <Text>Login</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <Text>Go to Home</Text>
+      </TouchableOpacity>
     </View>
   )
 }
