@@ -41,7 +41,7 @@ const Tabs = () => {
           tabBarIcon: ({ color, size }) => (
           <View style={{ justifyContent: 'center', alignItems: 'center',marginTop:"25%" }}>
             <Text style={{color:"#000"}}>
-                History
+                Social
             </Text>
           </View>
           ),
@@ -49,7 +49,7 @@ const Tabs = () => {
       />   
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={Home}
         options={{
           tabBarIcon: ({ color, size }) => (
             <View style={{ justifyContent: 'center', alignItems: 'center',marginTop:"25%" }}>
@@ -62,7 +62,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="Reward"
-        component={ChatStackScreen} 
+        component={Reward} 
         initialRouteName="Channel"
         options={{
           headerShown: false,
