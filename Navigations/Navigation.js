@@ -1,4 +1,4 @@
-import { NavigationContainer,useColorScheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 //import { useContext } from 'react';

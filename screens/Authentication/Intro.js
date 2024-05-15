@@ -1,10 +1,11 @@
-import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, useColorScheme, Image } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity,  Image } from 'react-native';
 import React, { useState } from 'react';
 import Swiper from 'react-native-swiper';
 import slides from './slideItems';
+import {useNavigation} from '@react-navigation/native'
 
 const Intro = () => {
-    const colorScheme = useColorScheme();
+    const navigation = useNavigation();
     const [activeRadioButton, setActiveRadioButton] = useState(1);
 
     const renderRadioButton = (index) => (
@@ -15,6 +16,10 @@ const Intro = () => {
             <View />
         </TouchableOpacity>
     );
+
+    const navToSignIn = () =>{
+      navigation.navigate('login')
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -31,7 +36,7 @@ const Intro = () => {
             </Swiper>
 
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={navToSignIn}>
                     <Text style={{ color: '#02B2DD', fontSize: 17 }}>Sign in</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button1}>
@@ -52,7 +57,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colorScheme === 'dark' ? '#000' : '#fff',
+    backgroundColor: '#fff',
   },
   image: {
     width: '95%',
@@ -63,10 +68,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colorScheme === 'dark' ? '#000' : '#fff', // Set background color based on color scheme
+    backgroundColor: '#fff', // Set background color based on color scheme
   },
   text: {
-    color: colorScheme === 'dark' ? '#fff' : '#000', // Set text color based on color scheme
+    color:  '#000', // Set text color based on color scheme
   },
   text1: {
     fontSize: 30,
