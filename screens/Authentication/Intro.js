@@ -2,9 +2,10 @@ import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity,  Image } from '
 import React, { useState } from 'react';
 import Swiper from 'react-native-swiper';
 import slides from './slideItems';
+import {useNavigation} from '@react-navigation/native'
 
 const Intro = () => {
-    
+    const navigation = useNavigation();
     const [activeRadioButton, setActiveRadioButton] = useState(1);
 
     const renderRadioButton = (index) => (
@@ -15,6 +16,10 @@ const Intro = () => {
             <View />
         </TouchableOpacity>
     );
+
+    const navToSignIn = () =>{
+      navigation.navigate('login')
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -31,7 +36,7 @@ const Intro = () => {
             </Swiper>
 
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={navToSignIn}>
                     <Text style={{ color: '#02B2DD', fontSize: 17 }}>Sign in</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button1}>
