@@ -17,9 +17,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         justifyContent: "center",
         alignItems: "center",
-        border: "#000",
+        borderColor: "#000",
         borderRadius: 5,
-        marginTop: "4%"
+        marginTop: "4%",
+        display:"flex",
+        flexDirection:"row",
+        justifyContent:"space-evenly",
+        borderWidth: 1
     },
     Glogo: {
         width: 25,

@@ -9,7 +9,7 @@ const Login = () => {
       <Text style={styles.headertxt}>Sign in to your Account</Text>
       <Text style={styles.smalltxt}>Enter your details to sign in to your account</Text>
       <Image source={Logo} style={styles.logo}/>
-      <GoogleBtn/>
+      <GoogleBtn title="Sign in with Google"/>
     </SafeAreaView>
   );
 };

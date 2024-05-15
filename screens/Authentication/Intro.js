@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff', // Set background color based on color scheme
   },
   text: {
-    color:  '#000', // Set text color based on color scheme
+    color:  'dodgerblue', // Set text color based on color scheme
   },
   text1: {
     fontSize: 30,
