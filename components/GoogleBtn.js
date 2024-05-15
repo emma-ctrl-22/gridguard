@@ -4,7 +4,7 @@ import React from 'react'
 export default function GoogleBtn({onPress,title}) {
   return (
     <TouchableOpacity style={styles.btn}>
-        <Image source={require('../assets/google.png')} style={styles.Glogo}/> 
+        <Image source={require('../assets/GoogleIcon.png')} style={styles.Glogo}/> 
       <Text>{title}</Text>
     </TouchableOpacity>
   )
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
         border:"#000",
         borderRadius:5,
+        marginTop:"4%"
     },
     Glogo:{
         width:25,
