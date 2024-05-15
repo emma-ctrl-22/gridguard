@@ -1,8 +1,8 @@
 const slides = [
     {
         img: require('../../assets/bolt.jpg'), // update the path to your image
-        text1: 'Get a new Experience of',
-        text2: 'being ahead',
+        text1: 'Get a new Experience of `{/n}` being ahead',
+        text2: '',
         text3: 'Receive notifications regarding the availability of',
         text4: 'electricity or water in your neighborhood'
     },

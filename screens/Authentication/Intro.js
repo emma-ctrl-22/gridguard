@@ -51,17 +51,20 @@ export default Intro
 
 const styles = StyleSheet.create({
   swiper: {
-    height: '60%',
+    height: '90%',
+    backgroundColor:"#fff",
+    marginTop:"7%"
   },
   slide: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'red',
+    width: '100%',
+    height: '100%',
   },
   image: {
     width: '95%',
-    height: '70%',
+    height: '50%',
     borderRadius: 30,
   },
   container: {
@@ -71,7 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff', // Set background color based on color scheme
   },
   text: {
-    color:  'dodgerblue', // Set text color based on color scheme
+    color:  '#000', // Set text color based on color scheme
   },
   text1: {
     fontSize: 30,
