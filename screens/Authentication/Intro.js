@@ -3,45 +3,46 @@ import React, { useState } from 'react';
 import Swiper from 'react-native-swiper';
 import slides from './slideItems';
 
-const Login = () => {
-  const colorScheme = useColorScheme();
-  const [activeRadioButton, setActiveRadioButton] = useState(1);
+const Intro = () => {
+    const colorScheme = useColorScheme();
+    const [activeRadioButton, setActiveRadioButton] = useState(1);
 
-  const renderRadioButton = (index) => (
-    <TouchableOpacity
-      style={[styles.radioButton, activeRadioButton === index && styles.radioButtonActive]}
-      onPress={() => setActiveRadioButton(index)}
-    >
-      <View />
-    </TouchableOpacity>
-  );
-  return (
-    <SafeAreaView style={styles.container}>
-      <Swiper style={styles.swiper} showsButtons={false} loop={false}>
-        {slides.map((slide, index) => (
-          <View key={index} style={styles.slide}>
-            <Image style={styles.image} source={slide.img} />
-            <Text style={[styles.text, styles.text0]}>{slide.text1}</Text>
-            <Text style={[styles.text, styles.text1]}>{slide.text2}</Text>
-            <Text style={[styles.text, styles.text2]}>{slide.text3}</Text>
-            <Text style={[styles.text, styles.text3]}>{slide.text4}</Text>
-          </View>
-        ))}
-      </Swiper>
-
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={{ color: '#02B2DD', fontSize: 17 }}>Sign in</Text>
+    const renderRadioButton = (index) => (
+        <TouchableOpacity
+            style={[styles.radioButton, activeRadioButton === index && styles.radioButtonActive]}
+            onPress={() => setActiveRadioButton(index)}
+        >
+            <View />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button1}>
-          <Text style={{ color: '#FFFFFF', fontSize: 17 }}> Sign up</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
-  );
-};
+    );
 
-export default Login;
+    return (
+        <SafeAreaView style={styles.container}>
+            <Swiper style={styles.swiper} showsButtons={false} loop={false}>
+                {slides.map((slide, index) => (
+                    <View key={index} style={styles.slide}>
+                        <Image style={styles.image} source={slide.img} />
+                        <Text style={[styles.text, styles.text0]}>{slide.text1}</Text>
+                        <Text style={[styles.text, styles.text1]}>{slide.text2}</Text>
+                        <Text style={[styles.text, styles.text2]}>{slide.text3}</Text>
+                        <Text style={[styles.text, styles.text3]}>{slide.text4}</Text>
+                    </View>
+                ))}
+            </Swiper>
+
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={{ color: '#02B2DD', fontSize: 17 }}>Sign in</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button1}>
+                    <Text style={{ color: '#FFFFFF', fontSize: 17 }}> Sign up</Text>
+                </TouchableOpacity>
+            </View>
+        </SafeAreaView>
+    )
+}
+
+export default Intro
 
 const styles = StyleSheet.create({
   swiper: {
