@@ -1,10 +1,10 @@
-import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, useColorScheme, Image } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity,  Image } from 'react-native';
 import React, { useState } from 'react';
 import Swiper from 'react-native-swiper';
 import slides from './slideItems';
 
 const Login = () => {
-  const colorScheme = useColorScheme();
+  
   const [activeRadioButton, setActiveRadioButton] = useState(1);
 
   const renderRadioButton = (index) => (
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colorScheme === 'dark' ? '#000' : '#fff',
+    backgroundColor:  '#fff',
   },
   image: {
     width: '95%',
@@ -62,10 +62,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colorScheme === 'dark' ? '#000' : '#fff', // Set background color based on color scheme
+    backgroundColor:  '#fff', // Set background color based on color scheme
   },
   text: {
-    color: colorScheme === 'dark' ? '#fff' : '#000', // Set text color based on color scheme
+    color: '#000', // Set text color based on color scheme
   },
   text1: {
     fontSize: 30,
