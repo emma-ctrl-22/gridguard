@@ -22,8 +22,9 @@ const styles = StyleSheet.create({
         marginTop: "4%",
         display:"flex",
         flexDirection:"row",
-        justifyContent:"space-evenly",
-        borderWidth: 1
+        justifyContent:"center",
+        borderWidth: 1,
+        
     },
     Glogo: {
         width: 25,

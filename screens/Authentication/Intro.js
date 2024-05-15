@@ -28,8 +28,7 @@ const Intro = () => {
                     <View key={index} style={styles.slide}>
                         <Image style={styles.image} source={slide.img} />
                         <Text style={[styles.text, styles.text0]}>{slide.text1}</Text>
-                        <Text style={[styles.text, styles.text1]}>{slide.text2}</Text>
-                        <Text style={[styles.text, styles.text2]}>{slide.text3}</Text>
+                        <Text style={[styles.text, styles.text3]}>{slide.text3}</Text>
                         <Text style={[styles.text, styles.text3]}>{slide.text4}</Text>
                     </View>
                 ))}
@@ -58,13 +57,13 @@ const styles = StyleSheet.create({
   slide: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+    
     width: '100%',
     height: '100%',
   },
   image: {
     width: '95%',
-    height: '50%',
+    height: '60%',
     borderRadius: 30,
   },
   container: {
@@ -79,12 +78,14 @@ const styles = StyleSheet.create({
   text1: {
     fontSize: 30,
     fontWeight: 'bold',
-
+    textAlign:"center"
   },
   text0: {
-    fontSize: 30,
+    fontSize: 29,
     fontWeight: 'bold',
-    marginTop: 15
+    marginTop: 15,
+    textAlign:"center",
+    padding:2
   },
   text2: {
     marginTop: 15,
@@ -94,7 +95,9 @@ const styles = StyleSheet.create({
   text3: {
     fontSize: 15,
     fontWeight: '100',
-    marginBottom: 30
+    marginBottom: 30,
+    textAlign:"center",
+    marginTop:"2%",padding:8
   },
   radioButtonsContainer: {
     flexDirection: 'row',
