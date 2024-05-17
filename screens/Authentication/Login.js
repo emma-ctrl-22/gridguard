@@ -1,7 +1,8 @@
 import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity,  Image } from 'react-native';
-import React, { useState } from 'react';
+//import { useState } from 'react';
 import Logo from '../../assets/GridGuard-Logo.png'
 import GoogleBtn from '../../components/GoogleBtn';
+import LoginForm from '../../components/Forms/LoginForm';
 
 const Login = () => {
   return (
@@ -10,6 +11,7 @@ const Login = () => {
       <Text style={styles.smalltxt}>Enter your details to sign in to your account</Text>
       <Image source={Logo} style={styles.logo}/>
       <GoogleBtn title="Sign in with Google"/>
+      <LoginForm/>
     </SafeAreaView>
   );
 };

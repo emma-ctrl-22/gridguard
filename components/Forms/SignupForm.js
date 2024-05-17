@@ -2,10 +2,8 @@ import { StyleSheet, View, Text, TextInput, Pressable } from 'react-native';
 import { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigateToScreen } from '../../hooks/useNavigateToScreen';
-//import { useInfo } from '../../context/InfoCenter';
 
-
-const LoginForm = () => {
+export default function SignupForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -40,9 +38,8 @@ const LoginForm = () => {
       </Pressable>
     </View>
   );
-};
+}
 
-export default LoginForm;
 
 const styles = StyleSheet.create({
   form: {
