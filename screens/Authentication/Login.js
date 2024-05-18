@@ -1,6 +1,6 @@
 import { StyleSheet, SafeAreaView, Text, View, Pressable, Image, TextInput } from 'react-native';
 import { useState } from 'react';
-import Logo from '../../assets/GridGuard-Logo.png'
+import Logo from '../../assets/GridGuard-Logo.png';
 import GoogleBtn from '../../components/GoogleBtn';
 import Divider from '../../components/Divider';
 import { EvilIcons, Fontisto } from '@expo/vector-icons';
@@ -9,6 +9,7 @@ import SubmitButton from '../../components/SubmitButton';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.headertxt}>Sign in to your Account</Text>
@@ -21,14 +22,27 @@ const Login = () => {
       </Text>
       <View style={styles.inputGroup}>
         <Fontisto name="email" size={20} color="#c0c0c0" marginLeft="3%" />
-        <TextInput placeholder='Enter an email' value={email} onChangeText={(text) => setEmail(text)} style={styles.input} />
+        <TextInput 
+          placeholder='Enter an email' 
+          value={email} 
+          onChangeText={(text) => setEmail(text)} 
+          style={styles.input} 
+          placeholderTextColor="#a0a0a0" 
+        />
       </View>
       <Text style={styles.label}>
         Password
       </Text>
       <View style={styles.inputGroup}>
         <EvilIcons name="lock" size={25} color="#c0c0c0" marginLeft="3%" />
-        <TextInput placeholder='Enter a secured password' value={password} onChangeText={(text) => setPassword(text)} style={styles.input} />
+        <TextInput 
+          placeholder='Enter a secured password' 
+          value={password} 
+          onChangeText={(text) => setPassword(text)} 
+          style={styles.input} 
+          placeholderTextColor="#a0a0a0" 
+          secureTextEntry 
+        />
       </View>
       <Text style={styles.ForgotTxt}>Forgot Password?</Text>
       <SubmitButton text="Log in" width="85%" height="7%" bR={5} bW={0} color="#fff" />
@@ -79,7 +93,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom:"1%",
+    marginBottom: "1%",
   },
   input: {
     width: "90%",
@@ -107,7 +121,7 @@ const styles = StyleSheet.create({
   txt1: {
     color: "#000",
     fontSize: 15,
-    opacity:0.4
+    opacity: 0.4
   },
   txt2: {
     color: "#02B2DD",
