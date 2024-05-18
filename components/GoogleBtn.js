@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"center",
         borderWidth: 1,
-        
+        gap: 10,
     },
     Glogo: {
         width: 25,

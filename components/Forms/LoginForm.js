@@ -1,9 +1,8 @@
 import { StyleSheet, View, Text, TextInput, Pressable } from 'react-native';
 import { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import { useNavigateToScreen } from '../../hooks/useNavigateToScreen';
+// import { useNavigateToScreen } from '../../hooks/useNavigateToScreen';
 //import { useInfo } from '../../context/InfoCenter';
-
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -15,10 +14,21 @@ const LoginForm = () => {
     setPasswordVisible(!passwordVisible);
   };
 
+  const handleLoginPress = () => {
+    // Temporary replacement for navigation logic
+    console.log('Login button pressed');
+  };
+
   return (
     <View style={styles.form}>
       <Text style={styles.label}>Email</Text>
-      <TextInput onChangeText={(text)=>setEmail(text)} style={styles.emailInput} keyboardType="email-address" placeholder='Your Unique Email' />
+      <TextInput 
+        onChangeText={(text) => setEmail(text)} 
+        style={styles.emailInput} 
+        keyboardType="email-address" 
+        placeholder='Your Unique Email' 
+        placeholderTextColor="#CDCDE0"
+      />
       <Text style={styles.label}>Password</Text>
       <View style={styles.passBox}>
         <TextInput
@@ -26,15 +36,16 @@ const LoginForm = () => {
           textContentType='password'
           secureTextEntry={!passwordVisible}
           placeholder="Password"
-          onChangeText={(text)=>setPassword(text)}
+          placeholderTextColor="#CDCDE0"
+          onChangeText={(text) => setPassword(text)}
         />
-        <Pressable onPress={togglePasswordVisibility} style={{ marginRight: "5%" }} >
+        <Pressable onPress={togglePasswordVisibility} style={{ marginRight: "5%" }}>
           <AntDesign name={passwordVisible ? "eye" : "eyeo"} size={24} color="white" />
         </Pressable>
       </View>
       <Text style={styles.ForgotTxt}>Forgot Password</Text>
-      {/*<SubmitButton onPress='' text="Log in" width="100%" height="13%" />*/}
-      <Pressable onPress={()=>useNavigateToScreen('signIn')} style={styles.switchLink}>
+      {/* <SubmitButton onPress='' text="Log in" width="100%" height="13%" /> */}
+      <Pressable onPress={handleLoginPress} style={styles.switchLink}>
         <Text style={styles.txt1}>Don't have an account?</Text>
         <Text style={styles.txt2}>Signup</Text>
       </Pressable>
@@ -46,7 +57,7 @@ export default LoginForm;
 
 const styles = StyleSheet.create({
   form: {
-    height: "60%",
+    height: "30%",
     width: "90%",
     alignSelf: "center",
     flexDirection: "column",
@@ -97,7 +108,7 @@ const styles = StyleSheet.create({
   ForgotTxt: {
     marginTop: "3%",
     color: "#CDCDE0",
-    fontSize: "1rem",
+    fontSize: 15,
     fontWeight: 300,
     alignSelf: "flex-end",
     marginRight: "2%"
