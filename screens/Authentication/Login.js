@@ -1,6 +1,6 @@
 import { StyleSheet, SafeAreaView, Text, View, Pressable, Image, TextInput, Alert } from 'react-native';
 import { useState } from 'react';
-import Logo from '../../assets/GridGuard-Logo.png';
+import Logo from '../../assets/GridGuard-Logo.svg';
 import GoogleBtn from '../../components/GoogleBtn';
 import Divider from '../../components/Divider';
 import { EvilIcons, Fontisto } from '@expo/vector-icons';
@@ -27,7 +27,7 @@ const Login = () => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.headertxt}>Sign in to your Account</Text>
       <Text style={styles.smalltxt}>Enter your details to sign in to your account</Text>
-      <Image source={Logo} style={styles.logo} />
+      <Logo/>
       <GoogleBtn title="Sign in with Google" />
       <Divider />
       <Text style={styles.label}>Email</Text>
