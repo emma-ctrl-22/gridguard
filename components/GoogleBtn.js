@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
+import GoogleLogo from '../assets/GoogleIcon.svg'
 
 export default function GoogleBtn({ onPress, title }) {
     return (
         <TouchableOpacity style={styles.btn} onPress={onPress}>
-            <Image source={require('../assets/GoogleIcon.png')} style={styles.Glogo} />
+            <GoogleLogo/>
             <Text>{title}</Text>
         </TouchableOpacity>
     )
