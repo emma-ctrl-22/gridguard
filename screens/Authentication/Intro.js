@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginBottom:"4%"
   },
   radioButton: {
     height: 12,
