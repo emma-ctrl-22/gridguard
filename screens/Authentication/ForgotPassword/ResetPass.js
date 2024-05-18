@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, Text, SafeAreaView, TextInput, View, Pressable, Alert } from 'react-native';
 import SubmitButton from '../../../components/SubmitButton';
+import LockIcon from '../../../assets/LockIcon.svg'; 
 
 export default function ResetPass({ route, navigation }) {
     const { email } = route.params;
@@ -19,6 +20,7 @@ export default function ResetPass({ route, navigation }) {
 
     return (
         <SafeAreaView style={styles.container}>
+            <LockIcon width={200} height={200} />
             <Text style={styles.headerText}>Reset your password</Text>
             <Text style={styles.subText}>
                 Enter your new password and confirm to reset your password for {email}
@@ -26,14 +28,14 @@ export default function ResetPass({ route, navigation }) {
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="New Password"
+                    placeholder="Enter new Password"
                     secureTextEntry={true}
                     onChangeText={setPassword}
                     value={password}
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder="Confirm Password"
+                    placeholder="Confirm new Password"
                     secureTextEntry={true}
                     onChangeText={setConfirmPassword}
                     value={confirmPassword}
@@ -47,9 +49,10 @@ export default function ResetPass({ route, navigation }) {
                 bR={8}
                 onPress={handleResetPassword}
             />
-            <Pressable onPress={() => Alert.alert('View Terms and Conditions Pressed')}>
-                <Text style={styles.termsText}>View our Terms and Conditions</Text>
+            <Pressable style={{ marginTop: "4%" }} onPress={() => Alert.alert('View Terms and Conditions Pressed')}>
+                <Text style={styles.termsText}>By continuing you agree to our {`\n`} Terms & Conditions</Text>
             </Pressable>
+            
         </SafeAreaView>
     );
 }
@@ -59,11 +62,12 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         backgroundColor: '#fff',
+        paddingTop:"25%"
     },
     headerText: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginTop: "30%"
+        marginTop: "10%"
     },
     subText: {
         fontSize: 16,
@@ -74,18 +78,22 @@ const styles = StyleSheet.create({
     },
     inputContainer: {
         width: '85%',
+        height:'20%',
         marginBottom: 20,
+        justifyContent:"space-between"
     },
     input: {
-        borderBottomWidth: 1,
-        borderBottomColor: '#000',
+        borderWidth: 1,
+        borderColor: '#c0c0c0',
         fontSize: 16,
-        marginBottom: 20,
-        paddingVertical: 10,
+        height: 50,
+        paddingHorizontal: 10,
+        borderRadius: 8,
     },
     termsText: {
         marginTop: 20,
-        color: '#02B2DD',
+        color: '#c0c0c0',
         textDecorationLine: 'underline',
+        textAlign:"center"
     },
 });

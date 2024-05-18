@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, TextInput, Pressable, Alert } from 'react-native';
-import LockIcon from '../../../assets/LockIcon.svg'; // Ensure this path is correct
+import LockIcon from '../../../assets/LockIcon.svg'; 
 import SubmitButton from '../../../components/SubmitButton';
 import {useNavigation } from '@react-navigation/native';
 export default function ForgotPass() {
