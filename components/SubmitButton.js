@@ -2,9 +2,9 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function SubmitButton({ text, width, height, bg, bW, bR, color }) {
+export default function SubmitButton({ text, width, height, bg, bW, bR, color,onPress }) {
     return (
-        <TouchableOpacity style={{ width: width, height: height }}>
+        <TouchableOpacity onPress={onPress} style={{ width: width, height: height }}>
             <LinearGradient
                 colors={['#02B2DD', '#12D2C7']}
                 start={{ x: 0, y: 0 }}
