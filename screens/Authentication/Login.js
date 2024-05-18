@@ -5,10 +5,12 @@ import GoogleBtn from '../../components/GoogleBtn';
 import Divider from '../../components/Divider';
 import { EvilIcons, Fontisto } from '@expo/vector-icons';
 import SubmitButton from '../../components/SubmitButton';
+import { useNavigateToScreen } from '../../hooks/useNavigateToScreen';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigateToScreen = useNavigateToScreen();
 
   const handleLogin = () => {
     // Logic for handling login goes here
@@ -53,7 +55,7 @@ const Login = () => {
       </View>
       <Text style={styles.ForgotTxt}>Forgot Password?</Text>
       <SubmitButton text="Log in" width="85%" height="7%" bR={5} bW={0} color="#fff" onPress={handleLogin} />
-      <Pressable onPress='' style={styles.switchLink}>
+      <Pressable  style={styles.switchLink} onPress={()=>navigateToScreen('forgotPass')}>
         <Text style={styles.txt1}>Don't have an account?</Text>
         <Text style={styles.txt2}>Signup</Text>
       </Pressable>
