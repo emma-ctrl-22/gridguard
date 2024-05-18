@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView,TextInput } from 'react-native';
+import { StyleSheet, Text, SafeAreaView,TextInput, Pressable } from 'react-native';
 import LockIcon from '../../../assets/LockIcon.svg'; // Ensure this path is correct
 import SubmitButton from '../../../components/SubmitButton';
 
@@ -12,6 +12,9 @@ export default function ForgotPass() {
       <Text style={styles.txt2}>Enter your registered email below to recieve password reset code</Text>
       <TextInput placeholder='Enter email address' placeholderTextColor='#c0c0c0' style={styles.input}/>
       <SubmitButton width="85%" height={50} text='Continue' color='#fff' bR={8} />
+      <Pressable style={{marginTop:"4%"}}>
+      <Text style={styles.txt2}>By continuing you agree to our {`\n`} Terms & Conditions</Text>
+      </Pressable>
     </SafeAreaView>
   );
 }
@@ -40,6 +43,6 @@ const styles = StyleSheet.create({
     marginTop:"9%",
     borderRadius:8,
     padding:14,
-    marginBottom:"25%"
+    marginBottom:"20%"
   }
 });
