@@ -1,10 +1,10 @@
-import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, Pressable, Image, TextInput } from 'react-native';
 import { useState } from 'react';
 import Logo from '../../assets/GridGuard-Logo.png'
 import GoogleBtn from '../../components/GoogleBtn';
-import LoginForm from '../../components/Forms/LoginForm';
 import Divider from '../../components/Divider';
 import { EvilIcons, Fontisto } from '@expo/vector-icons';
+import SubmitButton from '../../components/SubmitButton';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,13 +20,22 @@ const Login = () => {
         Email
       </Text>
       <View style={styles.inputGroup}>
-        <Fontisto name="email" size={24} color="#c0c0c0" />
-        <TextInput value={email} onChangeText={(text) => setEmail(text)} style={styles.input} />
+        <Fontisto name="email" size={20} color="#c0c0c0" marginLeft="3%" />
+        <TextInput placeholder='Enter an email' value={email} onChangeText={(text) => setEmail(text)} style={styles.input} />
       </View>
+      <Text style={styles.label}>
+        Password
+      </Text>
       <View style={styles.inputGroup}>
-        <EvilIcons name="lock" size={24} color="black" />
-        <TextInput value={password} onChangeText={(text) => setPassword(text)} style={styles.input} />
+        <EvilIcons name="lock" size={25} color="#c0c0c0" marginLeft="3%" />
+        <TextInput placeholder='Enter a secured password' value={password} onChangeText={(text) => setPassword(text)} style={styles.input} />
       </View>
+      <Text style={styles.ForgotTxt}>Forgot Password?</Text>
+      <SubmitButton text="Log in" width="85%" height="7%" bR={5} bW={0} color="#fff" />
+      <Pressable onPress='' style={styles.switchLink}>
+        <Text style={styles.txt1}>Don't have an account?</Text>
+        <Text style={styles.txt2}>Signup</Text>
+      </Pressable>
     </SafeAreaView>
   );
 };
@@ -55,21 +64,22 @@ const styles = StyleSheet.create({
   },
   label: {
     marginTop: "6%",
-
     color: "#02B2DD",
     fontSize: 14,
     alignSelf: "flex-start",
     marginLeft: "8%"
   },
   inputGroup: {
-    backgroundColor: "#ECECEC",
+    borderColor: "#C0C0C0",
+    borderWidth: 1,
     width: "85%",
-    height: "8%",
+    height: 50,
     borderRadius: 5,
     display: "flex",
     flexDirection: 'row',
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    marginBottom:"1%",
   },
   input: {
     width: "90%",
@@ -77,5 +87,31 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 18,
     marginLeft: "2%"
+  },
+  ForgotTxt: {
+    marginTop: "3%",
+    color: "#04B5DF",
+    fontSize: 15,
+    alignSelf: "flex-end",
+    marginRight: "7%",
+    fontWeight: "bold"
+  },
+  switchLink: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "60%",
+    height: "5%",
+    marginTop: "9%",
+    alignSelf: "center",
+  },
+  txt1: {
+    color: "#000",
+    fontSize: 15,
+    opacity:0.4
+  },
+  txt2: {
+    color: "#02B2DD",
+    fontSize: 15,
+    marginLeft: "2%",
   }
 });
