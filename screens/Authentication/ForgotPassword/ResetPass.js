@@ -19,7 +19,7 @@ export default function ResetPass({ route, navigation }) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.headerText}>Reset password</Text>
+            <Text style={styles.headerText}>Reset your password</Text>
             <Text style={styles.subText}>
                 Enter your new password and confirm to reset your password for {email}
             </Text>
