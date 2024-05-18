@@ -12,12 +12,13 @@ export default function GoogleBtn({ onPress, title }) {
 
 const styles = StyleSheet.create({
     btn: {
-        width: "82%",
+        width: 315,
+        maxHeight:315,
         height: 50,
         backgroundColor: "#FFFFFF",
         justifyContent: "center",
         alignItems: "center",
-        borderColor: "#000",
+        borderColor: "#C0C0C0",
         borderRadius: 5,
         marginTop: "4%",
         display:"flex",

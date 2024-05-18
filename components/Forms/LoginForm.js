@@ -1,8 +1,9 @@
 import { StyleSheet, View, Text, TextInput, Pressable } from 'react-native';
 import { useState } from 'react';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Fontisto } from '@expo/vector-icons';
 // import { useNavigateToScreen } from '../../hooks/useNavigateToScreen';
 //import { useInfo } from '../../context/InfoCenter';
+
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -22,13 +23,10 @@ const LoginForm = () => {
   return (
     <View style={styles.form}>
       <Text style={styles.label}>Email</Text>
-      <TextInput 
-        onChangeText={(text) => setEmail(text)} 
-        style={styles.emailInput} 
-        keyboardType="email-address" 
-        placeholder='Your Unique Email' 
-        placeholderTextColor="#CDCDE0"
-      />
+      <View style={styles.inputGroup}>
+        <Fontisto name="email" size={24} color="#" />
+        <TextInput value={email} onChangeText={(text) => setEmail(text)} style={styles.input} />
+      </View>
       <Text style={styles.label}>Password</Text>
       <View style={styles.passBox}>
         <TextInput
