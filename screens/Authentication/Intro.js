@@ -38,7 +38,7 @@ const Intro = () => {
       </Swiper>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={navToSignIn}>
+        <TouchableOpacity style={styles.button} onPress={()=>navigateToScreen('login')}>
           <Text style={{ color: '#02B2DD', fontSize: 17 }}>Sign in</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button1} onPress={() => navigateToScreen('signIn')}>
