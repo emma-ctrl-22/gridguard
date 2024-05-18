@@ -1,63 +1,65 @@
-import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity,  Image } from 'react-native';
+// Intro.js
+import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, Image } from 'react-native';
 import React, { useState } from 'react';
 import Swiper from 'react-native-swiper';
 import slides from './slideItems';
-import {useNavigation} from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import { useNavigateToScreen } from '../../hooks/useNavigateToScreen';
 
 const Intro = () => {
-    const navigation = useNavigation();
-    const [activeRadioButton, setActiveRadioButton] = useState(1);
+  const navigation = useNavigation();
+  const navigateToScreen = useNavigateToScreen();
+  const [activeRadioButton, setActiveRadioButton] = useState(1);
 
-    const renderRadioButton = (index) => (
-        <TouchableOpacity
-            style={[styles.radioButton, activeRadioButton === index && styles.radioButtonActive]}
-            onPress={() => setActiveRadioButton(index)}
-        >
-            <View />
+  const renderRadioButton = (index) => (
+    <TouchableOpacity
+      style={[styles.radioButton, activeRadioButton === index && styles.radioButtonActive]}
+      onPress={() => setActiveRadioButton(index)}
+    >
+      <View />
+    </TouchableOpacity>
+  );
+
+  const navToSignIn = () => {
+    navigation.navigate('login');
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Swiper style={styles.swiper} showsButtons={false} loop={false}>
+        {slides.map((slide, index) => (
+          <View key={index} style={styles.slide}>
+            <Image style={styles.image} source={slide.img} />
+            <Text style={[styles.text, styles.text0]}>{slide.text1}</Text>
+            <Text style={[styles.text, styles.text3]}>{slide.text3}</Text>
+            <Text style={[styles.text, styles.text3]}>{slide.text4}</Text>
+          </View>
+        ))}
+      </Swiper>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={navToSignIn}>
+          <Text style={{ color: '#02B2DD', fontSize: 17 }}>Sign in</Text>
         </TouchableOpacity>
-    );
+        <TouchableOpacity style={styles.button1} onPress={() => navigateToScreen('signIn')}>
+          <Text style={{ color: '#FFFFFF', fontSize: 17 }}>Sign up</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+};
 
-    const navToSignIn = () =>{
-      navigation.navigate('login')
-    }
-
-    return (
-        <SafeAreaView style={styles.container}>
-            <Swiper style={styles.swiper} showsButtons={false} loop={false}>
-                {slides.map((slide, index) => (
-                    <View key={index} style={styles.slide}>
-                        <Image style={styles.image} source={slide.img} />
-                        <Text style={[styles.text, styles.text0]}>{slide.text1}</Text>
-                        <Text style={[styles.text, styles.text3]}>{slide.text3}</Text>
-                        <Text style={[styles.text, styles.text3]}>{slide.text4}</Text>
-                    </View>
-                ))}
-            </Swiper>
-
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={navToSignIn}>
-                    <Text style={{ color: '#02B2DD', fontSize: 17 }}>Sign in</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button1}>
-                    <Text style={{ color: '#FFFFFF', fontSize: 17 }}> Sign up</Text>
-                </TouchableOpacity>
-            </View>
-        </SafeAreaView>
-    )
-}
-
-export default Intro
+export default Intro;
 
 const styles = StyleSheet.create({
   swiper: {
     height: '90%',
-    backgroundColor:"#fff",
-    marginTop:"7%"
+    backgroundColor: "#fff",
+    marginTop: "7%"
   },
   slide: {
     justifyContent: 'center',
     alignItems: 'center',
-    
     width: '100%',
     height: '100%',
   },
@@ -73,19 +75,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff', // Set background color based on color scheme
   },
   text: {
-    color:  '#000', // Set text color based on color scheme
+    color: '#000', // Set text color based on color scheme
   },
   text1: {
     fontSize: 30,
     fontWeight: 'bold',
-    textAlign:"center"
+    textAlign: "center"
   },
   text0: {
     fontSize: 29,
     fontWeight: 'bold',
     marginTop: 15,
-    textAlign:"center",
-    padding:2
+    textAlign: "center",
+    padding: 2
   },
   text2: {
     marginTop: 15,
@@ -96,8 +98,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '100',
     marginBottom: 30,
-    textAlign:"center",
-    marginTop:"2%",padding:8
+    textAlign: "center",
+    marginTop: "2%", padding: 8
   },
   radioButtonsContainer: {
     flexDirection: 'row',

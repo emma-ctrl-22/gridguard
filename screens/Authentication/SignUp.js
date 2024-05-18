@@ -11,7 +11,7 @@ const SignUp = () => {
       <Text style={styles.smalltxt}>Enter your details to create an account</Text>
       <Image source={Logo} style={styles.logo}/>
       <GoogleBtn title="Sign up with Google"/>
-      <LoginForm/>
+      
     </SafeAreaView>
   )
 }
