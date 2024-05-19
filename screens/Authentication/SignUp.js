@@ -1,6 +1,6 @@
-import { KeyboardAvoidingView, Alert, TouchableOpacity, StyleSheet, SafeAreaView, Text, View, Image, TextInput, Platform } from 'react-native';
-import { useState } from 'react';
-import Logo from '../../assets/GridGuard-Logo.png';
+import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity,  Image } from 'react-native';
+//import { useState } from 'react';
+import Logo from '../../assets/GridGuard-Logo.png'
 import GoogleBtn from '../../components/GoogleBtn';
 import Divider from '../../components/Divider';
 import { EvilIcons, Fontisto } from '@expo/vector-icons';
@@ -65,62 +65,11 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView 
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.keyboardAvoidingView}
-      >
-        <Text style={styles.headertxt}>Sign up to your Account</Text>
-        <Text style={styles.smalltxt}>Get the best experience by signing up with us</Text>
-        <Image source={Logo} style={styles.logo} />
-        <GoogleBtn title="Sign up with Google" />
-        <Divider />
-        <Text style={styles.label}>
-          Full name
-        </Text>
-        <View style={styles.inputGroup}>
-          <Fontisto name="person" size={20} color="#c0c0c0" marginLeft="3%" />
-          <TextInput 
-            placeholder='Enter your full name' 
-            value={name} 
-            onChangeText={(text) => setName(text)} 
-            style={styles.input} 
-            placeholderTextColor="#a0a0a0" 
-          />
-        </View>
-        <Text style={styles.label}>
-          Email
-        </Text>
-        <View style={styles.inputGroup}>
-          <Fontisto name="email" size={20} color="#c0c0c0" marginLeft="3%" />
-          <TextInput 
-            placeholder='Enter your email' 
-            value={email} 
-            onChangeText={(text) => setEmail(text)} 
-            style={styles.input} 
-            placeholderTextColor="#a0a0a0" 
-          />
-        </View>
-        <Text style={styles.label}>
-          Password
-        </Text>
-        <View style={styles.inputGroup}>
-          <EvilIcons name="lock" size={25} color="#c0c0c0" marginLeft="3%" />
-          <TextInput 
-            placeholder='Enter a secured password' 
-            value={password} 
-            onChangeText={(text) => setPassword(text)} 
-            style={styles.input} 
-            placeholderTextColor="#a0a0a0" 
-            secureTextEntry 
-          />
-        </View>
-       
-        <SubmitButton onPress={handleSignUp} text="Sign Up" width="85%" height="7%" bR={5} bW={0} color="#fff" />
-        <TouchableOpacity onPress={handleAlreadyHaveAccount} style={styles.switchLink}>
-          <Text style={styles.txt1}>Already have an account? </Text>
-          <Text style={styles.txt2}>Sign in</Text>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
+      <Text style={styles.headertxt}>Sign up to your Account</Text>
+      <Text style={styles.smalltxt}>Enter your details to create an account</Text>
+      <Image source={Logo} style={styles.logo}/>
+      <GoogleBtn title="Sign up with Google"/>
+      <LoginForm/>
     </SafeAreaView>
   );
 };

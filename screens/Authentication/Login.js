@@ -1,25 +1,36 @@
-import { StyleSheet, SafeAreaView, Text, View, Pressable, Image, TextInput } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, Pressable, Image, TextInput, Alert } from 'react-native';
 import { useState } from 'react';
-import Logo from '../../assets/GridGuard-Logo.png';
+import Logo from '../../assets/GridGuard-Logo.svg';
 import GoogleBtn from '../../components/GoogleBtn';
 import Divider from '../../components/Divider';
 import { EvilIcons, Fontisto } from '@expo/vector-icons';
 import SubmitButton from '../../components/SubmitButton';
+import { useNavigateToScreen } from '../../hooks/useNavigateToScreen';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigateToScreen = useNavigateToScreen();
+
+  const handleLogin = () => {
+    // Logic for handling login goes here
+    // For now, we'll just show an alert
+    Alert.alert(
+      'Sign in Error',
+      'Email/Password entered is not valid. Please enter a valid email/password',
+      [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+      { cancelable: false }
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.headertxt}>Sign in to your Account</Text>
       <Text style={styles.smalltxt}>Enter your details to sign in to your account</Text>
-      <Image source={Logo} style={styles.logo} />
+      <Logo/>
       <GoogleBtn title="Sign in with Google" />
       <Divider />
-      <Text style={styles.label}>
-        Email
-      </Text>
+      <Text style={styles.label}>Email</Text>
       <View style={styles.inputGroup}>
         <Fontisto name="email" size={20} color="#c0c0c0" marginLeft="3%" />
         <TextInput 
@@ -30,9 +41,7 @@ const Login = () => {
           placeholderTextColor="#a0a0a0" 
         />
       </View>
-      <Text style={styles.label}>
-        Password
-      </Text>
+      <Text style={styles.label}>Password</Text>
       <View style={styles.inputGroup}>
         <EvilIcons name="lock" size={25} color="#c0c0c0" marginLeft="3%" />
         <TextInput 
@@ -45,8 +54,8 @@ const Login = () => {
         />
       </View>
       <Text style={styles.ForgotTxt}>Forgot Password?</Text>
-      <SubmitButton text="Log in" width="85%" height="7%" bR={5} bW={0} color="#fff" />
-      <Pressable onPress='' style={styles.switchLink}>
+      <SubmitButton text="Log in" width="85%" height="7%" bR={5} bW={0} color="#fff" onPress={handleLogin} />
+      <Pressable  style={styles.switchLink} onPress={()=>navigateToScreen('forgotPass')}>
         <Text style={styles.txt1}>Don't have an account?</Text>
         <Text style={styles.txt2}>Signup</Text>
       </Pressable>

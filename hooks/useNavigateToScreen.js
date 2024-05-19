@@ -1,6 +1,7 @@
+// useNavigateToScreen.js
 import { useNavigation } from '@react-navigation/native';
 
-const useNavigateToScreen = () => {
+export const useNavigateToScreen = () => {
   const navigation = useNavigation();
 
   const navigateToScreen = (screenName) => {
@@ -9,5 +10,3 @@ const useNavigateToScreen = () => {
 
   return navigateToScreen;
 };
-
-export default useNavigateToScreen;

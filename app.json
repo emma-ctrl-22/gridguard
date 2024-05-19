@@ -4,10 +4,10 @@
     "slug": "Gridguard",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/GridGuard-Logo.png",
+    "icon": "./assets/GridGuard-Logo.svg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/GridGuard-Logo.png",
+      "image": "./assets/GridGuard-Logo.svg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
