@@ -23,6 +23,9 @@ const Intro = () => {
     const navToSignIn = () =>{
       navigation.navigate('login')
     }
+    const navToSignUp = () =>{
+      navigation.navigate('signIn')
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -42,7 +45,7 @@ const Intro = () => {
                     <Text style={{ color: '#02B2DD', fontSize: 17 }}>Sign in</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button1}>
-                    <Text style={{ color: '#FFFFFF', fontSize: 17 }}> Sign up</Text>
+                    <Text style={{ color: '#FFFFFF', fontSize: 17 }} onPress={navToSignUp}> Sign up</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
