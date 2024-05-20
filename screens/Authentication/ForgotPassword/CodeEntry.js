@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, Text, SafeAreaView, TextInput, View, Pressable, Alert } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, TextInput, View, Pressable, Alert, useWindowDimensions } from 'react-native';
 import SubmitButton from '../../../components/SubmitButton';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,6 +8,8 @@ export default function CodeEntry({ route }) {
     const [code, setCode] = useState(['', '', '', '', '', '']);
     const inputs = useRef([]);
     const navigation = useNavigation();
+    const { width } = useWindowDimensions();
+    const isTablet = width >= 768;
 
     const handleCodeChange = (text, index) => {
         const newCode = [...code];
@@ -40,15 +42,15 @@ export default function CodeEntry({ route }) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.headerText}>Reset password</Text>
-            <Text style={styles.subText}>
+            <Text style={[styles.headerText, isTablet && styles.tabletHeaderText]}>Reset password</Text>
+            <Text style={[styles.subText, isTablet && styles.tabletSubText]}>
                 Enter the 6 digit code we sent to your email {email}
             </Text>
             <View style={styles.codeContainer}>
                 {code.map((digit, index) => (
                     <TextInput
                         key={index}
-                        style={styles.codeInput}
+                        style={[styles.codeInput, isTablet && styles.tabletCodeInput]}
                         keyboardType='numeric'
                         maxLength={1}
                         onChangeText={(text) => handleCodeChange(text, index)}
@@ -58,8 +60,8 @@ export default function CodeEntry({ route }) {
                 ))}
             </View>
             <Pressable style={{ marginBottom: "20%" }} onPress={() => Alert.alert('Resend Code Pressed')}>
-                <Text style={styles.resendText}>Haven't received verification code yet?</Text>
-                <Text style={{ textAlign: "center", color: "#02B2DD", textDecorationLine: "underline" }}>
+                <Text style={[styles.resendText, isTablet && styles.tabletResendText]}>Haven't received verification code yet?</Text>
+                <Text style={[styles.resendText, isTablet && styles.tabletResendText, { textAlign: "center", color: "#02B2DD", textDecorationLine: "underline" }]}>
                     Resend Code
                 </Text>
             </Pressable>
@@ -84,7 +86,10 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginTop: "30%"
+        marginTop: "30%",
+    },
+    tabletHeaderText: {
+        fontSize: 30,
     },
     subText: {
         fontSize: 16,
@@ -93,10 +98,13 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         color: '#707070',
     },
+    tabletSubText: {
+        fontSize: 20,
+    },
     codeContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 90
+        marginTop: 90,
     },
     codeInput: {
         borderBottomWidth: 1,
@@ -106,9 +114,16 @@ const styles = StyleSheet.create({
         width: 40,
         marginHorizontal: 5,
     },
+    tabletCodeInput: {
+        fontSize: 28,
+        width: 50,
+    },
     resendText: {
         color: '#000',
         marginVertical: 20,
         opacity: 0.5,
+    },
+    tabletResendText: {
+        fontSize: 18,
     },
 });

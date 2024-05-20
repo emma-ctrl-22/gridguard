@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { StyleSheet, Text, SafeAreaView, TextInput, View, Pressable, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, SafeAreaView, TextInput, View, Pressable, Alert, useWindowDimensions } from 'react-native';
 import SubmitButton from '../../../components/SubmitButton';
 import LockIcon from '../../../assets/LockIcon.svg'; 
 
@@ -7,6 +7,9 @@ export default function ResetPass({ route, navigation }) {
     const { email } = route.params;
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
+    const { width } = useWindowDimensions();
+    const isTablet = width >= 768;
 
     const handleResetPassword = () => {
         if (password !== confirmPassword) {
@@ -20,12 +23,12 @@ export default function ResetPass({ route, navigation }) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <LockIcon width={200} height={200} />
-            <Text style={styles.headerText}>Reset your password</Text>
-            <Text style={styles.subText}>
+            <LockIcon width={200} height={200} style={styles.icon} />
+            <Text style={[styles.headerText, isTablet && styles.tabletHeaderText]}>Reset your password</Text>
+            <Text style={[styles.subText, isTablet && styles.tabletSubText]}>
                 Enter your new password and confirm to reset your password for {email}
             </Text>
-            <View style={styles.inputContainer}>
+            <View style={[styles.inputContainer, isTablet && styles.tabletInputContainer]}>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter new Password"
@@ -52,7 +55,6 @@ export default function ResetPass({ route, navigation }) {
             <Pressable style={{ marginTop: "4%" }} onPress={() => Alert.alert('View Terms and Conditions Pressed')}>
                 <Text style={styles.termsText}>By continuing you agree to our {`\n`} Terms & Conditions</Text>
             </Pressable>
-            
         </SafeAreaView>
     );
 }
@@ -62,12 +64,15 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         backgroundColor: '#fff',
-        paddingTop:"25%"
+        paddingTop: "25%"
+    },
+    icon: {
+        marginTop: "5%",
     },
     headerText: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginTop: "10%"
+        marginTop: "10%",
     },
     subText: {
         fontSize: 16,
@@ -78,9 +83,9 @@ const styles = StyleSheet.create({
     },
     inputContainer: {
         width: '85%',
-        height:'20%',
+        height: '20%',
         marginBottom: 20,
-        justifyContent:"space-between"
+        justifyContent: "space-between",
     },
     input: {
         borderWidth: 1,
@@ -94,6 +99,17 @@ const styles = StyleSheet.create({
         marginTop: 20,
         color: '#c0c0c0',
         textDecorationLine: 'underline',
-        textAlign:"center"
+        textAlign: "center"
+    },
+    tabletHeaderText: {
+        fontSize: 28,
+        marginTop: "15%",
+    },
+    tabletSubText: {
+        fontSize: 18,
+        marginVertical: 30,
+    },
+    tabletInputContainer: {
+        marginTop: 30,
     },
 });
