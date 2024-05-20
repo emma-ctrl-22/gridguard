@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Logo from '../../assets/GridGuard-Logo.png';
 import GoogleBtn from '../../components/GoogleBtn';
 import Divider from '../../components/Divider';
-import { EvilIcons, Fontisto } from '@expo/vector-icons';
+import { EvilIcons, Fontisto,Feather } from '@expo/vector-icons';
 import SubmitButton from '../../components/SubmitButton';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../config/firebase";
@@ -77,7 +77,7 @@ const SignUp = () => {
           <Divider />
           <Text style={styles.label}>Full name</Text>
           <View style={styles.inputGroup}>
-            <Fontisto name="person" size={20} color="#c0c0c0" marginLeft="3%" />
+          <Feather name="user" size={21} color="#c0c0c0" />
             <TextInput 
               placeholder='Enter your full name' 
               value={name} 
@@ -88,7 +88,7 @@ const SignUp = () => {
           </View>
           <Text style={styles.label}>Email</Text>
           <View style={styles.inputGroup}>
-            <Fontisto name="email" size={20} color="#c0c0c0" marginLeft="3%" />
+            <Fontisto name="email" size={18} color="#c0c0c0" />
             <TextInput 
               placeholder='Enter your email' 
               value={email} 
@@ -99,7 +99,7 @@ const SignUp = () => {
           </View>
           <Text style={styles.label}>Password</Text>
           <View style={styles.inputGroup}>
-            <EvilIcons name="lock" size={25} color="#c0c0c0" marginLeft="3%" />
+            <EvilIcons name="lock" size={25} color="#c0c0c0" />
             <TextInput 
               placeholder='Enter a secured password' 
               value={password} 
@@ -110,7 +110,7 @@ const SignUp = () => {
             />
           </View>
         
-          <SubmitButton onPress={handleSignUp} text="Sign Up" width="85%" height="7%" bR={5} bW={0} color="#fff" />
+          <SubmitButton onPress={handleSignUp} text="Create account" width={325} height="7%" bR={5} bW={0} color="#fff" />
           <TouchableOpacity onPress={handleAlreadyHaveAccount} style={styles.switchLink}>
             <Text style={styles.txt1}>Already have an account? </Text>
             <Text style={styles.txt2}>Sign in</Text>
@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    width:"100%"
   },
   headertxt: {
     fontSize: 25,
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
     color: '#02B2DD',
     fontSize: 14,
     alignSelf: 'flex-start',
-    marginLeft: '8%',
+    marginLeft: '1%',
   },
   inputGroup: {
     borderColor: '#C0C0C0',
@@ -171,6 +172,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: '1%',
+    paddingLeft: '3%',
   },
   input: {
     width: '90%',
