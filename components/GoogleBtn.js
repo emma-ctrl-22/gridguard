@@ -2,18 +2,18 @@ import { StyleSheet, Text, TouchableOpacity, useWindowDimensions } from 'react-n
 import React from 'react';
 import GoogleLogo from '../assets/GoogleIcon.svg';
 
-export default function GoogleBtn({ onPress, title, isTablet }) {
-  const { width } = useWindowDimensions();
+export default function GoogleBtn({ onPress, title, isTablet, width, height }) {
+  const { width: windowWidth } = useWindowDimensions();
 
   return (
     <TouchableOpacity
       style={[
         styles.btn,
-        isTablet ? styles.tabletBtn : styles.mobileBtn,
+        { width: width || (isTablet ? windowWidth * 0.5 : windowWidth * 0.88), height: height || 50 },
       ]}
       onPress={onPress}
     >
-      <GoogleLogo style={styles.glogo} />
+      <GoogleLogo width={25} height={25} style={styles.glogo} />
       <Text style={styles.btnText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -31,21 +31,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-  mobileBtn: {
-    width: "88%",
-    height: 50,
-  },
-  tabletBtn: {
-    width: "50%",
-    height: 50,
-  },
   btnText: {
     marginLeft: 10,
     fontSize: 16,
     color: "#000000",
   },
   glogo: {
-    width: 25,
-    height: 25,
+    marginRight: 10,
   },
 });

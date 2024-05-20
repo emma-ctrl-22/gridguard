@@ -3,21 +3,15 @@ import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, Image, useWindo
 import React, { useState } from 'react';
 import Swiper from 'react-native-swiper';
 import slides from './slideItems';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigateToScreen } from '../../hooks/useNavigateToScreen'
 
 const Intro = () => {
-  const navigation = useNavigation();
+  const navigateToScreen = useNavigateToScreen();
   const { width } = useWindowDimensions();
 
   const isTablet = width >= 768;
 
-  const navToSignIn = () => {
-    navigation.navigate('login');
-  };
-
-  const navToSignUp = () => {
-    navigation.navigate('signIn');
-  };
+ 
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,10 +26,10 @@ const Intro = () => {
       </Swiper>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={[styles.button, isTablet && styles.tabletButton]} onPress={navToSignIn}>
+        <TouchableOpacity style={[styles.button, isTablet && styles.tabletButton]} onPress={()=>navigateToScreen('login')}>
           <Text style={styles.signInText}>Sign in</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button1, isTablet && styles.tabletButton1]} onPress={navToSignUp}>
+        <TouchableOpacity style={[styles.button1, isTablet && styles.tabletButton1]} onPress={()=>navigateToScreen('onBoard')}>
           <Text style={styles.signUpText}>Sign up</Text>
         </TouchableOpacity>
       </View>

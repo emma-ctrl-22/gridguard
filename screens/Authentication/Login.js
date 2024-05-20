@@ -61,7 +61,7 @@ const Login = () => {
       </View>
       <Text onPress={() => navigateToScreen('forgotPass')} style={styles.forgotTxt}>Forgot Password?</Text>
       <SubmitButton text="Log in" width={isTablet ? "50%" : "88%"} height={isTablet ? 50 : "7%"} bR={5} bW={0} color="#fff" onPress={handleLogin} />
-      <Pressable style={styles.switchLink} onPress={() => navigateToScreen('signIn')}>
+      <Pressable style={styles.switchLink} onPress={() => navigateToScreen('onBoard')}>
         <Text style={styles.txt1}>Don't have an account?</Text>
         <Text style={styles.txt2}>Signup</Text>
       </Pressable>
