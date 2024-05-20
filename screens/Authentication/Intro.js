@@ -1,5 +1,5 @@
 // Intro.js
-import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, Image,useWindowDimensions } from 'react-native';
 import React, { useState } from 'react';
 import Swiper from 'react-native-swiper';
 import slides from './slideItems';
@@ -10,6 +10,9 @@ const Intro = () => {
   const navigation = useNavigation();
   const navigateToScreen = useNavigateToScreen();
   const [activeRadioButton, setActiveRadioButton] = useState(1);
+  const {width,height} = useWindowDimensions();
+
+  const isTablet = width >= 768;
 
   const renderRadioButton = (index) => (
     <TouchableOpacity
@@ -33,9 +36,9 @@ const Intro = () => {
                 {slides.map((slide, index) => (
                     <View key={index} style={styles.slide}>
                         <Image style={styles.image} source={slide.img} />
-                        <Text style={[styles.text, styles.text0]}>{slide.text1}</Text>
-                        <Text style={[styles.text, styles.text3]}>{slide.text3}</Text>
-                        <Text style={[styles.text, styles.text3]}>{slide.text4}</Text>
+                        <Text style={ styles.text0}>{slide.text1}</Text>
+                        <Text style={ styles.text3}>{slide.text3}</Text>
+                        <Text style={ styles.text3}>{slide.text4}</Text>
                     </View>
                 ))}
             </Swiper>
@@ -61,7 +64,6 @@ const styles = StyleSheet.create({
     marginTop: "7%"
   },
   slide: {
-    justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     height: '100%',
@@ -70,6 +72,13 @@ const styles = StyleSheet.create({
     width: '95%',
     height: '60%',
     borderRadius: 30,
+    marginTop: "5%"
+  },
+  TabImage: {         
+    width: '85%',
+    height: '75%',
+    borderRadius: 30,
+    marginTop: "5%"
   },
   container: {
     flex: 1,
@@ -77,32 +86,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff', // Set background color based on color scheme
   },
-  text: {
-    color: '#000', // Set text color based on color scheme
-  },
-  text1: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: "center"
-  },
   text0: {
     fontSize: 29,
     fontWeight: 'bold',
     marginTop: 15,
     textAlign: "center",
-    padding: 2
+    padding: 2,
+    color: '#000',
   },
-  text2: {
-    marginTop: 15,
-    fontSize: 15,
-    fontWeight: '100'
+  Tabtext0: {
+    fontSize: 39,
+    fontWeight: 'bold',
+    marginTop: 25,
+    textAlign: "center",
+    padding: 2,
+    color: '#000',
   },
   text3: {
     fontSize: 15,
     fontWeight: '100',
     marginBottom: 30,
     textAlign: "center",
-    marginTop: "2%", padding: 8
+    marginTop: "2%", padding: 8,
+    color: '#000',
+  },
+  Tabtext3: {
+    fontSize: 25,
+    fontWeight: '100',
+    marginBottom: 30,
+    textAlign: "center",
+    marginTop: "2%", padding: 8,
+    color: '#000',
   },
   radioButtonsContainer: {
     flexDirection: 'row',
@@ -133,6 +147,24 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: 20,
     alignItems: 'center',
+  },
+  TabButton:{
+    width: 240,
+    height: 80,
+    justifyContent: 'center',
+    borderRadius: 10,
+    marginRight: 20,
+    alignItems: 'center',
+    backgroundColor: '#02B2DD',
+  },
+  TabButton1:{
+    width: 240,
+    height: 80,
+    justifyContent: 'center',
+    borderRadius: 10,
+    marginRight: 20,
+    alignItems: 'center',
+    backgroundColor: '#02B2DD',
   },
   button1: {
     width: 140,
