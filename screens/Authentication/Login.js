@@ -1,4 +1,4 @@
-import { StyleSheet, SafeAreaView, Text, View, Pressable, TextInput, Alert, useWindowDimensions } from 'react-native';
+import { KeyboardAvoidingView,Platform,StyleSheet,ScrollView, SafeAreaView, Text, View, Pressable, TextInput, Alert, useWindowDimensions } from 'react-native';
 import { useState } from 'react';
 import Logo from '../../assets/GridGuard-Logo.svg';
 import GoogleBtn from '../../components/GoogleBtn';
@@ -26,6 +26,11 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+        <KeyboardAvoidingView 
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.keyboardAvoidingView}
+      >
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <Text style={styles.headertxt}>Sign in to your Account</Text>
       <Text style={styles.smalltxt}>Enter your details to sign in to your account</Text>
       <Logo style={styles.logo} />
@@ -60,6 +65,8 @@ const Login = () => {
         <Text style={styles.txt1}>Don't have an account?</Text>
         <Text style={styles.txt2}>Signup</Text>
       </Pressable>
+      </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
@@ -93,6 +100,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     alignSelf: "flex-start",
     marginLeft: "6%",
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:"100%"
   },
   inputGroup: {
     borderColor: "#C0C0C0",
