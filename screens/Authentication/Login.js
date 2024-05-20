@@ -44,7 +44,7 @@ const Login = () => {
       </View>
       <Text style={styles.label}>Password</Text>
       <View style={styles.inputGroup}>
-        <EvilIcons name="lock" size={25} color="#c0c0c0" marginLeft="3%" />
+        <EvilIcons name="lock" size={25} color="#c0c0c0" />
         <TextInput 
           placeholder='Enter a secured password' 
           value={password} 
@@ -54,9 +54,9 @@ const Login = () => {
           secureTextEntry 
         />
       </View>
-      <Text style={styles.ForgotTxt}>Forgot Password?</Text>
-      <SubmitButton text="Log in" width="85%" height="7%" bR={5} bW={0} color="#fff" onPress={handleLogin} />
-      <Pressable  style={styles.switchLink} onPress={()=>navigateToScreen('forgotPass')}>
+      <Text onPress={()=>navigateToScreen('forgotPass')} style={styles.ForgotTxt}>Forgot Password?</Text>
+      <SubmitButton text="Log in" width="88%" height="7%" bR={5} bW={0} color="#fff" onPress={handleLogin} />
+      <Pressable  style={styles.switchLink} onPress={()=>navigateToScreen('signIn')}>
         <Text style={styles.txt1}>Don't have an account?</Text>
         <Text style={styles.txt2}>Signup</Text>
       </Pressable>
@@ -91,12 +91,12 @@ const styles = StyleSheet.create({
     color: "#02B2DD",
     fontSize: 14,
     alignSelf: "flex-start",
-    marginLeft: "8%"
+    marginLeft: "6%"
   },
   inputGroup: {
     borderColor: "#C0C0C0",
     borderWidth: 1,
-    width: "85%",
+    width: "88%",
     height: 50,
     borderRadius: 5,
     display: "flex",

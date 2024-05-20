@@ -13,8 +13,8 @@ export default function GoogleBtn({ onPress, title }) {
 
 const styles = StyleSheet.create({
     btn: {
-        width: 315,
-        maxHeight:315,
+        width: 325,
+        maxHeight:325,
         height: 50,
         backgroundColor: "#FFFFFF",
         justifyContent: "center",
