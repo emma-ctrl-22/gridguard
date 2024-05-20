@@ -5,13 +5,19 @@ import LogoGroup from '../../assets/LogoGroup.svg';
 export default function OnBoard() {
   return (
     <SafeAreaView style={styles.container}>
-      <LogoGroup width={100} height={100}  />
+      <LogoGroup style={styles.logo} width={179} />
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    container:{
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'#fff',
+    },
+    logo:{
+        
+    }
 })
