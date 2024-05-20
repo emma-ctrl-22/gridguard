@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, Alert, TouchableOpacity, StyleSheet, SafeAreaView, Text, View, Image, TextInput, Platform, ScrollView } from 'react-native';
+import { KeyboardAvoidingView, useWindowDimensions,Alert, TouchableOpacity, StyleSheet, SafeAreaView, Text, View, Image, TextInput, Platform, ScrollView } from 'react-native';
 import { useState } from 'react';
 import Logo from '../../assets/GridGuard-Logo.png';
 import GoogleBtn from '../../components/GoogleBtn';
@@ -16,6 +16,9 @@ const SignUp = () => {
   const [name, setName] = useState('');
 
   const navigation = useNavigation();
+  const {width}= useWindowDimensions();
+
+  const isTablet = width >= 768;
 
   const handleSignUp = async () => {
     try {
@@ -73,8 +76,6 @@ const SignUp = () => {
           <Text style={styles.headertxt}>Sign up to your Account</Text>
           <Text style={styles.smalltxt}>Get the best experience by signing up with us</Text>
           <Image source={Logo} style={styles.logo} />
-          <GoogleBtn title="Sign up with Google" />
-          <Divider />
           <Text style={styles.label}>Full name</Text>
           <View style={styles.inputGroup}>
           <Feather name="user" size={21} color="#c0c0c0" />
@@ -110,7 +111,7 @@ const SignUp = () => {
             />
           </View>
         
-          <SubmitButton onPress={handleSignUp} text="Create account" width={325} height="7%" bR={5} bW={0} color="#fff" />
+          <SubmitButton onPress={handleSignUp} text="Create account" width={335} height="7%" bR={5} bW={0} color="#fff" />
           <TouchableOpacity onPress={handleAlreadyHaveAccount} style={styles.switchLink}>
             <Text style={styles.txt1}>Already have an account? </Text>
             <Text style={styles.txt2}>Sign in</Text>
@@ -153,19 +154,19 @@ const styles = StyleSheet.create({
     marginBottom: '6%',
   },
   logo: {
-    marginTop: '6%',
+    marginTop: '4%',
   },
   label: {
     marginTop: '6%',
     color: '#02B2DD',
     fontSize: 14,
     alignSelf: 'flex-start',
-    marginLeft: '1%',
+    marginLeft: '0%',
   },
   inputGroup: {
     borderColor: '#C0C0C0',
     borderWidth: 1,
-    width: '85%',
+    width: '87%',
     height: 50,
     borderRadius: 5,
     flexDirection: 'row',

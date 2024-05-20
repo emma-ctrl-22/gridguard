@@ -16,7 +16,7 @@ const Intro = () => {
   };
 
   const navToSignUp = () => {
-    navigation.navigate('signIn');
+    navigation.navigate('onBoard');
   };
 
   return (
