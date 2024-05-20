@@ -1,4 +1,4 @@
-import { StyleSheet, SafeAreaView, Text, View, Pressable, Image, TextInput, Alert } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, Pressable, TextInput, Alert,useWindowDimensions } from 'react-native';
 import { useState } from 'react';
 import Logo from '../../assets/GridGuard-Logo.svg';
 import GoogleBtn from '../../components/GoogleBtn';
@@ -11,10 +11,11 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigateToScreen = useNavigateToScreen();
+  const {width,height} = useWindowDimensions();
+
+  const isTablet = width >= 768;
 
   const handleLogin = () => {
-    // Logic for handling login goes here
-    // For now, we'll just show an alert
     Alert.alert(
       'Sign in Error',
       'Email/Password entered is not valid. Please enter a valid email/password',
@@ -31,14 +32,14 @@ const Login = () => {
       <GoogleBtn title="Sign in with Google" />
       <Divider />
       <Text style={styles.label}>Email</Text>
-      <View style={styles.inputGroup}>
-        <Fontisto name="email" size={20} color="#c0c0c0" marginLeft="3%" />
+      <View style={isTablet?styles.TabInputGroup:styles.inputGroup}>
+        <Fontisto name="email" size={20} color="#c0c0c0"/>
         <TextInput 
           placeholder='Enter an email' 
           value={email} 
           onChangeText={(text) => setEmail(text)} 
           style={styles.input} 
-          placeholderTextColor="#a0a0a0" 
+          placeholderTextColor="#a0a0a0"
         />
       </View>
       <Text style={styles.label}>Password</Text>
@@ -103,6 +104,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: "1%",
+    paddingLeft:"2%"
+  },
+  TabInputGroup: {
+    borderColor: "#C0C0C0",
+    borderWidth: 1,
+    width: "50%",
+    height: 50,
+    borderRadius: 5,
+    display: "flex",
+    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: "1%",
+    paddingLeft:"2%"
   },
   input: {
     width: "90%",
@@ -110,6 +125,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 18,
     marginLeft: "2%"
+  },
+  TabInput:{
+    width: "90%",
+    height: "90%",
+    borderRadius: 10,
+    fontSize: 18,
+    marginLeft: "2%",
+    textAlign: "center"
   },
   ForgotTxt: {
     marginTop: "3%",

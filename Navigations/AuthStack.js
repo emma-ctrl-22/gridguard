@@ -12,11 +12,11 @@ const AuthStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen options={{headerShown:false}} name='Intro' component={Intro}/>
-      <Stack.Screen options={{ headerShown: false }} name="login" component={LoginScreen} />
-      <Stack.Screen options={{ headerShown: false }} name="signIn" component={RegistrationScreen} />
-      <Stack.Screen options={{ headerShown: false }} name="forgotPass" component={ForgotPass} />
-      <Stack.Screen options={{ headerShown: false }} name="CodeEntry" component={CodeEntry} />
-      <Stack.Screen options={{ headerShown: false }} name="ResetPass" component={ResetPass} />
+      <Stack.Screen options={{headerShown:false}} name="login" component={LoginScreen} />
+      <Stack.Screen options={{headerShown:false}} name="signIn" component={RegistrationScreen} />
+      <Stack.Screen options={{headerShown:false}} name="forgotPass" component={ForgotPass} />
+      <Stack.Screen options={{headerShown:false}} name="CodeEntry" component={CodeEntry} />
+      <Stack.Screen options={{headerShown:false}} name="ResetPass" component={ResetPass} />
     </Stack.Navigator>
   );
 };
