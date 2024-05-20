@@ -18,11 +18,12 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
         marginTop:"5%",
-        marginBottom:"5%"
+        marginBottom:"5%",
+        width:"95%"
     },
     line:{
         height:1,
-        width:"33%",
+        width:"35%",
         backgroundColor:"#000",
         opacity:0.2
     },
