@@ -10,9 +10,6 @@ const Intro = () => {
   const { width } = useWindowDimensions();
 
   const isTablet = width >= 768;
-
- 
-
   return (
     <SafeAreaView style={styles.container}>
       <Swiper style={styles.swiper} showsButtons={false} loop={false}>
