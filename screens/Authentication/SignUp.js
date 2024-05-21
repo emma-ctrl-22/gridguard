@@ -98,6 +98,18 @@ const SignUp = () => {
               placeholderTextColor="#a0a0a0" 
             />
           </View>
+          <Text style={styles.label}>Phone</Text>
+          <View style={styles.inputGroup}>
+            <Fontisto name="phone" size={18} color="#c0c0c0" />
+            <TextInput 
+              placeholder='Enter your phone' 
+              value={email} 
+              onChangeText={(text) => setEmail(text)} 
+              style={styles.input} 
+              keyboardType="phone-pad"
+              placeholderTextColor="#a0a0a0" 
+            />
+          </View>
           <Text style={styles.label}>Password</Text>
           <View style={styles.inputGroup}>
             <EvilIcons name="lock" size={25} color="#c0c0c0" />
