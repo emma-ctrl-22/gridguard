@@ -4,6 +4,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../Pages/Home';
 import Social from '../Pages/Social';
 import Reward from '../Pages/Reward';
+import Profile from '../Pages/Profile';
+import MakeReport from '../Pages/MakeReport';
 
 const screenOptions = {
   tabBarShowLabel: false,
@@ -33,19 +35,6 @@ const Tabs = ({ colorScheme }) => {
       tabBarActiveTint
     >
       <Tab.Screen
-        name="Social"
-        component={Social}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: "25%" }}>
-              <Text style={{ color: colorScheme === 'dark' ? 'white' : '#000' }}>
-                Social
-              </Text>
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Home"
         component={Home}
         options={{
@@ -53,6 +42,32 @@ const Tabs = ({ colorScheme }) => {
             <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: "25%" }}>
               <Text style={{ color: colorScheme === 'dark' ? 'white' : '#000' }}>
                 Home
+              </Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Social"
+        component={Social}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: "25%" }}>
+              <Text style={{ color: colorScheme === 'dark' ? 'white' : '#000' }}>
+                Make Post
+              </Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="MakeReport"
+        component={MakeReport}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: "25%" }}>
+              <Text style={{ color: colorScheme === 'dark' ? 'white' : '#000' }}>
+                Make Post
               </Text>
             </View>
           ),
@@ -68,6 +83,19 @@ const Tabs = ({ colorScheme }) => {
             <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: "25%" }}>
               <Text style={{ color: colorScheme === 'dark' ? 'white' : '#000' }}>
                 Reward
+              </Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: "25%" }}>
+              <Text style={{ color: colorScheme === 'dark' ? 'white' : '#000' }}>
+                Profile
               </Text>
             </View>
           ),

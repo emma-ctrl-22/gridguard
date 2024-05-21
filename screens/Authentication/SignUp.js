@@ -1,8 +1,6 @@
 import { KeyboardAvoidingView, useWindowDimensions,Alert, TouchableOpacity, StyleSheet, SafeAreaView, Text, View, Image, TextInput, Platform, ScrollView } from 'react-native';
 import { useState } from 'react';
 import Logo from '../../assets/GridGuard-Logo.png';
-import GoogleBtn from '../../components/GoogleBtn';
-import Divider from '../../components/Divider';
 import { EvilIcons, Fontisto,Feather } from '@expo/vector-icons';
 import SubmitButton from '../../components/SubmitButton';
 import { createUserWithEmailAndPassword } from "firebase/auth";
