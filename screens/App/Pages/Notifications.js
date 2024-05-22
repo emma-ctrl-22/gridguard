@@ -2,12 +2,17 @@ import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, FlatList } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import notificationsData from './notification.json';
+import {useNavigation} from '@react-navigation/native'
 
 export default function Notifications() {
+    const navigation = useNavigation();
+    const NavBack = () =>{
+navigation.goBack();
+    }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
-        <AntDesign name="arrowleft" size={24} color="black" marginLeft={15} />
+        <AntDesign name="arrowleft" size={24} color="black" marginLeft={15} onPress={NavBack}/>
         <Text style={{ fontSize: 18 }}>Notifications</Text>
         <Entypo name="dots-three-vertical" size={24} color="black" marginRight={15} />
       </View>
@@ -30,7 +35,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#FBFBFB"
+    backgroundColor: "#eeeee4"
   },
   top: {
     width: "100%",
