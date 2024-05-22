@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, FlatList,TouchableOpacity,Pressable } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import notificationsData from './notification.json';
 import {useNavigation} from '@react-navigation/native'
@@ -15,6 +15,17 @@ navigation.goBack();
         <AntDesign name="arrowleft" size={24} color="black" marginLeft={15} onPress={NavBack}/>
         <Text style={{ fontSize: 18 }}>Notifications</Text>
         <Entypo name="dots-three-vertical" size={24} color="black" marginRight={15} />
+      </View>
+      <View style={styles.details}>
+<Text style={{fontWeight:"bold"}}>
+    10 New notifications
+</Text>
+<Pressable>
+<Text style={{color:"#02B2DD"}}>
+    Mark all as read
+</Text>
+</Pressable>
+
       </View>
       <FlatList
         data={notificationsData}
@@ -35,7 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#eeeee4"
+    backgroundColor: "#F8F8F8"
   },
   top: {
     width: "100%",
@@ -64,5 +75,15 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#02B2DD',
     alignSelf:"flex-end"
+  },
+  details:{
+    width:"95%",
+    height:40,
+    display:"flex",
+    flexDirection:"row",
+    padding:"2%",
+    alignItems:"center",
+    justifyContent:"space-between",
+    marginBottom:"1%"
   }
 });

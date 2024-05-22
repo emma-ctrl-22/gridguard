@@ -4,7 +4,9 @@ import React from 'react'
 const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Home</Text>
+      <ScrollView showsVerticalScrollIndicator={true} contentContainerStyle={{ paddingBottom: '2%',flex:2 }}>
+
+      </ScrollView>
     </SafeAreaView>
   )
 }
