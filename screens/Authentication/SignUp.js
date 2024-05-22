@@ -7,10 +7,12 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../config/firebase";
 import { useNavigation } from '@react-navigation/native';
 import { doc, setDoc } from 'firebase/firestore';
+import Gh from '../../assets/Gh.svg'
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [phone,setPhone]=useState('')
   const [name, setName] = useState('');
 
   const navigation = useNavigation();
@@ -98,11 +100,11 @@ const SignUp = () => {
           </View>
           <Text style={styles.label}>Phone</Text>
           <View style={styles.inputGroup}>
-            <Fontisto name="phone" size={18} color="#c0c0c0" />
+            <Gh/>
             <TextInput 
               placeholder='Enter your phone' 
-              value={email} 
-              onChangeText={(text) => setEmail(text)} 
+              value={phone} 
+              onChangeText={(text) => setPhone(text)} 
               style={styles.input} 
               keyboardType="phone-pad"
               placeholderTextColor="#a0a0a0" 
