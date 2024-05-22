@@ -38,7 +38,7 @@ const SignUp = () => {
 
       console.log("Signed up and user information saved to Firestore");
       Alert.alert("Success", "You have signed up successfully!");
-      navigation.navigate("login"); // Ensure this is the correct route name
+      navigation.navigate("VerifyAccount", { phone, email }); // Ensure this is the correct route name
     } catch (err) {
       console.error(err);
 

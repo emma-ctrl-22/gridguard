@@ -1,40 +1,51 @@
+// CodeEntry.js
 import React, { useState, useRef } from 'react';
 import { StyleSheet, Text, SafeAreaView, TextInput, View, Pressable, Alert, useWindowDimensions } from 'react-native';
 import SubmitButton from '../../../components/SubmitButton';
 import { useNavigation } from '@react-navigation/native';
 
 export default function CodeEntry({ route }) {
-    const { email } = route.params;
-    const [code, setCode] = useState(['', '', '', '', '', '']);
-    const inputs = useRef([]);
+    const { email, phone,nextScreen } = route.params;
+    const [code, setCode] = useState('');
+    const codeInputs = Array.from({ length: 6 }, () => useRef(null));
     const navigation = useNavigation();
     const { width } = useWindowDimensions();
     const isTablet = width >= 768;
 
     const handleCodeChange = (text, index) => {
-        const newCode = [...code];
-        newCode[index] = text;
-        setCode(newCode);
-    
-        // Check if the entered text is empty
+        if (text.length > 1) {
+            // Prevent entering more than one digit
+            return;
+        }
+        setCode(prevCode => {
+            const newCode = [...prevCode];
+            newCode[index] = text;
+            return newCode.join('');
+        });
+
         if (text === '' && index > 0) {
             // Focus on the previous input
-            inputs.current[index - 1].focus();
+            codeInputs[index - 1].current.focus();
         } else if (text !== '' && index < 5) {
             // Focus on the next input if a digit is entered
-            inputs.current[index + 1].focus();
+            codeInputs[index + 1].current.focus();
         }
     };
-    
 
     const handleContinue = () => {
-        if (code.some((digit) => digit === '')) {
+        if (code.length < 6) {
             Alert.alert('Error', 'Please enter the complete verification code');
         } else {
             Alert.alert('Success', 'Verification code accepted', [
                 {
                     text: 'Continue',
-                    onPress: () => navigation.navigate('ResetPass', { email }),
+                    onPress: () => {
+                        if (nextScreen === 'ResetPass') {
+                            navigation.navigate(nextScreen, { email });
+                        } else if (nextScreen === 'ScreenOne') {
+                            navigation.navigate(nextScreen);
+                        }
+                    },
                 },
             ]);
         }
@@ -44,18 +55,18 @@ export default function CodeEntry({ route }) {
         <SafeAreaView style={styles.container}>
             <Text style={[styles.headerText, isTablet && styles.tabletHeaderText]}>Reset password</Text>
             <Text style={[styles.subText, isTablet && styles.tabletSubText]}>
-                Enter the 6 digit code we sent to your email {email}
+                Enter the 6 digit code we sent to your email {email || phone}
             </Text>
             <View style={styles.codeContainer}>
-                {code.map((digit, index) => (
+                {Array.from({ length: 6 }, (_, index) => (
                     <TextInput
                         key={index}
                         style={[styles.codeInput, isTablet && styles.tabletCodeInput]}
                         keyboardType='numeric'
                         maxLength={1}
                         onChangeText={(text) => handleCodeChange(text, index)}
-                        value={digit}
-                        ref={ref => inputs.current[index] = ref}
+                        value={code[index]}
+                        ref={codeInputs[index]}
                     />
                 ))}
             </View>

@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function ForgotPass() {
   const [email, setEmail] = useState('');
+  const nextScreen = 'ResetPass';
   const navigation = useNavigation();
   const { width } = useWindowDimensions();
   const isTablet = width >= 768;
@@ -19,7 +20,7 @@ export default function ForgotPass() {
       Alert.alert('Error', 'Please enter an email');
     } else {
       Alert.alert('Password Reset', `A reset link has been sent to ${email}`, [
-        { text: 'OK', onPress: () => navigation.navigate('CodeEntry', { email }) }
+        { text: 'OK', onPress: () => navigation.navigate('CodeEntry', { email,nextScreen }) }
       ]);
     }
   };
