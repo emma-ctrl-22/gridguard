@@ -7,6 +7,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import Social from '../Pages/Social';
 import MakePost from '../Pages/MakeReport';
 import Profile from '../Pages/Profile';
+import Logo from '../../../assets/GridGuard-Logo.svg'
 
 const Tab = createBottomTabNavigator();
 
@@ -54,22 +55,40 @@ const AppTabs = () => {
     >
       <Tab.Screen name="Home" component={Home}
         options={{
-          headerTransparent:true,
-          headerTitle: 'Welcome back, James Brown',
+          headerTransparent: true,
+          headerLeft: () => (
+            <View style={{marginLeft:"10%"}}>
+              <Logo width={60} height={60} />
+            </View>
+          ),
+          headerTitle: () => (
+            <View style={{ height: "100%", display: "flex", flexDirection: "column",alignItems:'center',justifyContent:"center" }}>
+              <Text style={{color:"#c0c0c0"}}>
+                Welcome Back
+              </Text>
+              <Text style={{fontSize:18}}>
+                James Brown
+              </Text>
+            </View>
+          ),
           headerRight: () => (
-            <TouchableOpacity style={{ marginRight: 20 }}>
+            <TouchableOpacity style={{ marginRight: 20,backgroundColor:"#e0f2fa",width:50,height:50,borderRadius:7,justifyContent:"center",alignItems:"center" }}>
               <Ionicons name="notifications-outline" size={24} color="black" />
             </TouchableOpacity>
           ),
           headerTitleAlign: 'center',
           headerStyle: {
             backgroundColor: '#FCFCFC',
-            height:100
+            height: 100,
+           
           },
           headerTitleStyle: {
             fontSize: 15,
             color: '#333',
           },
+          headerRightContainerStyle: {
+            marginLeft: "2%"
+          }
         }}
       />
       <Tab.Screen name="MakePost" component={MakePost} />
