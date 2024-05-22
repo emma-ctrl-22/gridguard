@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import { TouchableOpacity, View, StyleSheet, Text, Animated } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../Pages/Home';
-import Reward from '../Pages/Reward';
+import Home from './Home';
+import Reward from './Reward';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Social from '../Pages/Social';
-import MakePost from '../Pages/MakeReport';
-import Profile from '../Pages/Profile';
+import MakePost from './MakeReport';
+import Profile from './Profile';
 import Logo from '../../../assets/GridGuard-Logo.svg'
 
 const Tab = createBottomTabNavigator();
