@@ -1,5 +1,5 @@
-import React from 'react';
-import { TouchableOpacity, View, StyleSheet, Text } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { TouchableOpacity, View, StyleSheet, Text, Animated } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../Pages/Home';
 import Reward from '../Pages/Reward';
@@ -23,7 +23,7 @@ const AppTabs = () => {
             label = 'Home';
           } else if (route.name === 'MakePost') {
             iconName = focused ? 'add-circle' : 'add-circle-outline';
-            label = 'Make Post';
+            label = 'Post';
           } else if (route.name === 'Rewards') {
             iconName = focused ? 'gift' : 'gift-outline';
             label = 'Rewards';
@@ -52,7 +52,26 @@ const AppTabs = () => {
         },
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Home" component={Home}
+        options={{
+          headerTitle: 'Welcome back, James Brown',
+          headerRight: () => (
+            <TouchableOpacity style={{ marginRight: 20 }}>
+              <Ionicons name="notifications-outline" size={24} color="black" />
+            </TouchableOpacity>
+          ),
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#FCFCFC',
+            height:100
+          },
+          headerTitleStyle: {
+            fontSize: 15,
+            fontWeight: 'bold',
+            color: '#333',
+          },
+        }}
+      />
       <Tab.Screen name="MakePost" component={MakePost} />
       <Tab.Screen
         name="MiddleButton"
@@ -71,21 +90,29 @@ const AppTabs = () => {
 
 const MiddleTabButton = ({ children, onPress, accessibilityState }) => {
   const isSelected = accessibilityState.selected;
+  const animation = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.spring(animation, {
+      toValue: isSelected ? -20 : 0,
+      useNativeDriver: true,
+    }).start();
+  }, [isSelected]);
 
   return (
     <TouchableOpacity
       style={{
-        top: isSelected ? -20 : 0, // Move the button up when selected
         justifyContent: 'center',
         alignItems: 'center',
         ...styles.shadow,
+        transform: [{ translateY: animation }],
       }}
       onPress={onPress}
     >
       <View
         style={{
-          width: 50,
-          height: 50,
+          width: 55,
+          height: 55,
           borderRadius: 35,
           backgroundColor: '#04B5DF',
           justifyContent: 'center',
