@@ -54,6 +54,7 @@ const AppTabs = () => {
     >
       <Tab.Screen name="Home" component={Home}
         options={{
+          headerTransparent:true,
           headerTitle: 'Welcome back, James Brown',
           headerRight: () => (
             <TouchableOpacity style={{ marginRight: 20 }}>
@@ -67,7 +68,6 @@ const AppTabs = () => {
           },
           headerTitleStyle: {
             fontSize: 15,
-            fontWeight: 'bold',
             color: '#333',
           },
         }}
