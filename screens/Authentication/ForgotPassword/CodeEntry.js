@@ -42,7 +42,7 @@ export default function CodeEntry({ route }) {
                     onPress: () => {
                         if (nextScreen === 'ResetPass') {
                             navigation.navigate(nextScreen, { email });
-                        } else if (nextScreen === 'ScreenOne') {
+                        } else if (nextScreen === 'Congrats') {
                             navigation.navigate(nextScreen);
                         }
                     },

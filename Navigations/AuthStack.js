@@ -7,6 +7,8 @@ import CodeEntry from '../screens/Authentication/ForgotPassword/CodeEntry';
 import ResetPass from '../screens/Authentication/ForgotPassword/ResetPass';
 import OnBoard from '../screens/Authentication/OnBoard';
 import VerifyAccount from '../screens/Authentication/VerifyAccount';
+import Welcome from '../screens/Authentication/Welcome';
+
 const Stack = createNativeStackNavigator();
 
 const AuthStack = () => {
@@ -20,6 +22,7 @@ const AuthStack = () => {
       <Stack.Screen options={{headerShown:false}} name="CodeEntry" component={CodeEntry} />
       <Stack.Screen options={{headerShown:false}} name="ResetPass" component={ResetPass} />
       <Stack.Screen options={{headerShown:false}} name="VerifyAccount" component={VerifyAccount} />
+      <Stack.Screen options={{headerShown:false}} name="Congrats" component={Welcome}/>
     </Stack.Navigator>
   );
 };
