@@ -8,15 +8,15 @@ import { useState } from 'react';
 
 export default function Navigations() {
   //const { isLoading, userToken,userInfo } = useContext(AuthContext);
-  const [isLoading, setIsLoading] = useState(true);
-  const [userToken, setUserToken] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [userToken, setUserToken] = useState(true);
   const [userInfo, setUserInfo] = useState({
     username: "Emmanuel",
     email:"emmanuelnyatepe35@gmail.com"
   });
   if (isLoading) {
     <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-      <ActivityIndicator size="large" color="#0000ff" />
+      <ActivityIndicator size="large" color="#000" />
     </View>
   }
 

@@ -8,10 +8,15 @@ import Social from '../Pages/Social';
 import MakePost from './MakeReport';
 import Profile from './Profile';
 import Logo from '../../../assets/GridGuard-Logo.svg'
+import { useNavigation } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
 const AppTabs = () => {
+  const navigation = useNavigation();
+  const navToNotification = () =>{
+navigation.navigate ('Notification')
+  }
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -72,7 +77,7 @@ const AppTabs = () => {
             </View>
           ),
           headerRight: () => (
-            <TouchableOpacity style={{ marginRight: 20,backgroundColor:"#e0f2fa",width:50,height:50,borderRadius:7,justifyContent:"center",alignItems:"center" }}>
+            <TouchableOpacity onPress={navToNotification} style={{ marginRight: 20,backgroundColor:"#e0f2fa",width:50,height:50,borderRadius:7,justifyContent:"center",alignItems:"center" }}>
               <Ionicons name="notifications-outline" size={24} color="black" />
             </TouchableOpacity>
           ),
