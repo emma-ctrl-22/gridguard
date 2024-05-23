@@ -19,7 +19,7 @@ export default function Notifications() {
     const renderRightActions = () => {
         return (
             <TouchableOpacity onPress={() => { }} style={styles.deleteContainer}>
-                <FontAwesome5 name="trash" size={24} color="black" />
+                <FontAwesome5 name="trash" size={24} color="black" /> 
             </TouchableOpacity>
         );
     }

@@ -1,4 +1,3 @@
-// VerifyAccount.js
 import { StyleSheet, Text, View,SafeAreaView } from 'react-native'
 import React, { useState } from 'react'
 import RadioButtons from '../App/Components/RadioButtons'
