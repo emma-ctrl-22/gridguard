@@ -34,7 +34,7 @@ const Home = () => {
             </TouchableOpacity>
             <TouchableOpacity style={styles.location}>
             <TouchableOpacity  style={{backgroundColor:"#e0f2fa",width:50,height:50,borderRadius:7,justifyContent:"center",alignItems:"center" }}>
-              <Ionicons name="notifications-outline" size={24} color="black" />
+              <Ionicons name="barbell-outline" size={24} color="black" />
             </TouchableOpacity >
               <View style={styles.locationTextContainer}>
                 <Text style={styles.locationText}>Gym</Text>
@@ -78,8 +78,8 @@ const Home = () => {
                 <Text style={styles.trendingText}>Ashiaman - Wahala</Text>
               </View>
             <Text style={styles.trendingComments}>2.1K comments</Text>
-            <TouchableOpacity style={styles.trendviewbtn}>
-          <Text style={styles.viewbtn}>View</Text>
+            <TouchableOpacity style={styles.availableviewbtn}>
+          <Text style={styles.availablebtn}>View</Text>
         </TouchableOpacity>
           </View>
          <LongDivider/>
@@ -90,8 +90,8 @@ const Home = () => {
                 <Text style={styles.trendingText}>Kasoa - Wahala</Text>
               </View>
             <Text style={styles.trendingComments}>0.5K comments</Text>
-            <TouchableOpacity style={styles.trendviewbtn}>
-          <Text style={styles.viewbtn}>View</Text>
+            <TouchableOpacity style={styles.availableviewbtn}>
+          <Text style={styles.availablebtn}>View</Text>
         </TouchableOpacity>
           </View>
 
@@ -100,6 +100,74 @@ const Home = () => {
           <Text style={styles.outageMapText}>View Outage Map</Text>
           <Ionicons name="arrow-forward-outline" size={20} color="white" />
         </TouchableOpacity>
+        <View style={styles.trendingheader}>
+        <Text style={styles.trendheadmain}>Outage Report History</Text>
+        <TouchableOpacity style={styles.viewMoreButton}>
+            <Text style={styles.viewMoreText}>View More</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.trendingContainer}>
+       <Text  style={{fontSize:15,marginBottom:13 }}>Reports from the last 12 hours</Text>
+       <View style={styles.trendingItem}>
+       <TouchableOpacity style={styles.Usercont}>
+       <Text style={styles.nametxt}>JB</Text>
+     </TouchableOpacity>
+     <View style={styles.locptionTextContainer}>
+                <Text style={styles.locationText}>Accra - Central</Text>
+                <Text style={styles.noLocation}>2 hours ago</Text>
+              </View>
+              <View  >
+                <Text >Type</Text>
+                <Ionicons name="water" size={24} color="#02B2DD" />
+              </View>
+              <View style={styles.type}>
+                <Text >Status</Text>
+                <TouchableOpacity style={styles.absentviewbtn}>
+          <Text style={styles.absentbtn}>Absent</Text>
+        </TouchableOpacity>
+              </View>
+       </View>
+      <LongDivider/>
+      <View style={styles.trendingItem}>
+       <TouchableOpacity style={styles.Usercont}>
+       <Text style={styles.nametxt}>LK</Text>
+     </TouchableOpacity>
+     <View style={styles.locptionTextContainer}>
+                <Text style={styles.locationText}>Tema - Newtown</Text>
+                <Text style={styles.noLocation}>7 hours ago</Text>
+              </View>
+              <View  >
+                <Text >Type</Text>
+                <Ionicons name="flash" size={24} color="#02B2DD" />
+              </View>
+              <View style={styles.type}>
+                <Text >Status</Text>
+                <TouchableOpacity style={styles.availableviewbtn}>
+          <Text style={styles.availablebtn}>Available</Text>
+        </TouchableOpacity>
+              </View>
+       </View>
+       <LongDivider/>
+       <View style={styles.trendingItem}>
+       <TouchableOpacity style={styles.Usercont}>
+       <Text style={styles.nametxt}>TF</Text>
+     </TouchableOpacity>
+     <View style={styles.locptionTextContainer}>
+                <Text style={styles.locationText}>Zenu - Lebanon</Text>
+                <Text style={styles.noLocation}>8 hours ago</Text>
+              </View>
+              <View  >
+                <Text >Type</Text>
+                <Ionicons name="water" size={24} color="#02B2DD" />
+              </View>
+              <View style={styles.type}>
+                <Text >Status</Text>
+                <TouchableOpacity style={styles.absentviewbtn}>
+          <Text style={styles.absentbtn}>Absent</Text>
+        </TouchableOpacity>
+              </View>
+       </View>
+     </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -151,6 +219,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color:"#02B2DD"
+  },
+  type:{
+  alignItems:'center'
   },
   statusSubtitle: {
     color: '#666',
@@ -219,6 +290,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 10,
     alignItems:"center" ,
+    alignContent:'center'
    
   },
   trendlocation: {
@@ -226,6 +298,15 @@ const styles = StyleSheet.create({
     
     justifyContent:"center",alignItems:"center" 
     
+  },
+  reportlocation: {
+
+    
+    justifyContent:"center",alignItems:"center" 
+    
+  },
+  trendingText: {
+    fontSize:15,
   },
   trendingText: {
     fontSize:15,
@@ -243,7 +324,7 @@ const styles = StyleSheet.create({
   viewMoreText: {
 
     fontWeight: 'bold',
-  },
+  },           
   outageMapButton: {
     marginHorizontal: 0,
     width:'50%',
@@ -259,7 +340,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  trendviewbtn: {
+  availableviewbtn: {
     
     
     paddingVertical: 5,
@@ -268,14 +349,49 @@ const styles = StyleSheet.create({
     backgroundColor: '#e0f2fa',
     alignItems: 'center',
   },
+  absentviewbtn: {
+    
+    
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    borderRadius: 10,
+    backgroundColor: '#DD0202',
+    alignItems: 'center',
+  },
+  Usercont: {
+    height:40,
+    width:40,
+    alignItems: 'center',
+    justifyContent:'center',
+    alignSelf: 'center',
+    borderRadius: 100,
+    backgroundColor: '#02B2DD',
+    alignItems: 'center',
+  },
   outageMapText: {
     color: '#FFFFFF',
     fontWeight: '500',
     fontSize: 16,
   },
-  viewbtn:  {
+  availablebtn:  {
     color: '#02B2DD',
     fontWeight: '500',
     fontSize: 16,
+    alignItems: 'center',
+    justifyContent:'center',
+    alignSelf: 'center',
+  },
+  absentbtn:  {
+    color: '#FF3D00',
+    fontWeight: '500',
+    fontSize: 16,
+    alignItems: 'center',
+    justifyContent:'center',
+    alignSelf: 'center',
+  },
+  nametxt :  {
+    color: '#ffffff',
+    fontWeight: '500',
+    fontSize: 20,
   },
 });
