@@ -45,7 +45,7 @@ export default function Notifications() {
             </View>
             <View style={styles.details}>
                 <Text style={{ fontWeight: "bold" }}>
-                    10 New notifications
+                    {notificationsData.length} New notifications
                 </Text>
                 <Pressable>
                     <Text style={{ color: "#02B2DD" }}>
