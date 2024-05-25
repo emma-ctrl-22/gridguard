@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { TouchableOpacity, View, StyleSheet, Animated } from 'react-native';
+import { TouchableOpacity, View, StyleSheet, Animated ,Text} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './Home';
 import Reward from './Reward';
@@ -61,7 +61,7 @@ const AppTabs = () => {
     >
       <Tab.Screen name="Home" component={Home}
         options={{
-          headerTransparent: true,
+          headerTransparent: false,
           headerLeft: () => (
             <View style={{ marginLeft: "10%" }}>
               <Logo width={60} height={60} />
