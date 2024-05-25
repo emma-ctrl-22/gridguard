@@ -1,7 +1,6 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import LongDivider from '../../../components/LongDivider';
 import Favourites from '../Components/Home-Components/Favourites';
 
 const trendingIssues = [
@@ -40,7 +39,7 @@ const Home = () => {
                   <Text style={styles.availablebtn}>View</Text>
                 </TouchableOpacity>
               </View>
-              {index < trendingIssues.length - 1 && <LongDivider />}
+              
             </React.Fragment>
           ))}
         </View>
@@ -137,7 +136,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 10,
     alignItems: "center",
-    alignContent: 'center'
+    alignContent: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#f0f0f0',
+    paddingBottom:10
   },
   trendlocation: {
     flexDirection: 'row',
