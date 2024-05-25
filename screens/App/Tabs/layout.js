@@ -118,7 +118,7 @@ const MiddleTabButton = ({ children, onPress, accessibilityState }) => {
 
   useEffect(() => {
     Animated.spring(animation, {
-      toValue: isSelected ? -20 : 0,
+      toValue: isSelected ? -25 : 0,
       useNativeDriver: true,
     }).start();
   }, [isSelected]);
