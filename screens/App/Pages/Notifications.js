@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, Pressable } from 'react-native';
 import { AntDesign, Entypo,FontAwesome5 } from '@expo/vector-icons';
 import notificationsData from './notificationData.json';
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import { Menu, MenuOptions, MenuOption, MenuTrigger, MenuProvider } from 'react-native-popup-menu';
 import { Swipeable } from 'react-native-gesture-handler';
 
 export default function Notifications() {
@@ -10,6 +11,9 @@ export default function Notifications() {
 
     const NavBack = () => {
         navigation.goBack();
+    }
+    const dotpress = () => {
+        console.log('dot pressed')
     }
 
     const handleDelete = (index) => {
@@ -36,29 +40,44 @@ export default function Notifications() {
         );
     }
 
+   
     return (
-        <SafeAreaView style={styles.container}>
-            <View style={styles.top}>
-                <AntDesign name="arrowleft" size={24} color="black" marginLeft={15} onPress={NavBack} />
-                <Text style={{ fontSize: 18 }}>Notifications</Text>
-                <Entypo name="dots-three-vertical" size={24} color="black" marginRight={15} />
-            </View>
-            <View style={styles.details}>
-                <Text style={{ fontWeight: "bold" }}>
-                    {notificationsData.length} New notifications
-                </Text>
-                <Pressable>
-                    <Text style={{ color: "#02B2DD" }}>
-                        Mark all as read
+        <MenuProvider>
+            <SafeAreaView style={styles.container}>
+                <View style={styles.top}>
+                    <AntDesign name="arrowleft" size={24} color="black" marginLeft={15} onPress={NavBack} />
+                    <Text style={{ fontSize: 18 }}>Notifications</Text>
+                    <Menu>
+                        <MenuTrigger>
+                            <Entypo name="dots-three-vertical" size={24} color="black" marginRight={15} />
+                        </MenuTrigger>
+                        <MenuOptions>
+                            <MenuOption onSelect={() => alert('View all')}>
+                                <Text style={{ padding: 10 }}>View all</Text>
+                            </MenuOption>
+                            <MenuOption onSelect={() => alert('Clear all')}>
+                                <Text style={{ padding: 10 }}>Clear all</Text>
+                            </MenuOption>
+                        </MenuOptions>
+                    </Menu>
+                </View>
+                <View style={styles.details}>
+                    <Text style={{ fontWeight: "bold" }}>
+                        {notificationsData.length} New notifications
                     </Text>
-                </Pressable>
-            </View>
-            <FlatList
-                data={notificationsData}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={renderItem}
-            />
-        </SafeAreaView>
+                    <Pressable>
+                        <Text style={{ color: "#02B2DD" }}>
+                            Mark all as read
+                        </Text>
+                    </Pressable>
+                </View>
+                <FlatList
+                    data={notificationsData}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={renderItem}
+                />
+            </SafeAreaView>
+        </MenuProvider>
     );
 }
 
