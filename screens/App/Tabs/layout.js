@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { TouchableOpacity, View, StyleSheet, Text, Animated } from 'react-native';
+import { TouchableOpacity, View, StyleSheet, Animated ,Text} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './Home';
 import Reward from './Reward';
@@ -7,16 +7,17 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import Social from '../Pages/Social';
 import MakePost from './MakeReport';
 import Profile from './Profile';
-import Logo from '../../../assets/GridGuard-Logo.svg'
+import Logo from '../../../assets/GridGuard-Logo.svg';
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Tab = createBottomTabNavigator();
 
 const AppTabs = () => {
   const navigation = useNavigation();
-  const navToNotification = () =>{
-navigation.navigate ('Notification')
-  }
+  const navToNotification = () => {
+    navigation.navigate('Notification');
+  };
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -60,24 +61,24 @@ navigation.navigate ('Notification')
     >
       <Tab.Screen name="Home" component={Home}
         options={{
-          headerTransparent: true,
+          headerTransparent: false,
           headerLeft: () => (
-            <View style={{marginLeft:"10%"}}>
+            <View style={{ marginLeft: "10%" }}>
               <Logo width={60} height={60} />
             </View>
           ),
           headerTitle: () => (
-            <View style={{ height: "100%", display: "flex", flexDirection: "column",alignItems:'center',justifyContent:"center" }}>
-              <Text style={{color:"#c0c0c0"}}>
+            <View style={{ height: "100%", display: "flex", flexDirection: "column", alignItems: 'center', justifyContent: "center" }}>
+              <Text style={{ color: "#c0c0c0" }}>
                 Welcome Back
               </Text>
-              <Text style={{fontSize:18}}>
+              <Text style={{ fontSize: 18 }}>
                 James Brown
               </Text>
             </View>
           ),
           headerRight: () => (
-            <TouchableOpacity onPress={navToNotification} style={{ marginRight: 20,backgroundColor:"#e0f2fa",width:50,height:50,borderRadius:7,justifyContent:"center",alignItems:"center" }}>
+            <TouchableOpacity onPress={navToNotification} style={{ marginRight: 20, backgroundColor: "#e0f2fa", width: 50, height: 50, borderRadius: 7, justifyContent: "center", alignItems: "center" }}>
               <Ionicons name="notifications-outline" size={24} color="black" />
             </TouchableOpacity>
           ),
@@ -85,7 +86,6 @@ navigation.navigate ('Notification')
           headerStyle: {
             backgroundColor: '#FCFCFC',
             height: 100,
-           
           },
           headerTitleStyle: {
             fontSize: 15,
@@ -118,7 +118,7 @@ const MiddleTabButton = ({ children, onPress, accessibilityState }) => {
 
   useEffect(() => {
     Animated.spring(animation, {
-      toValue: isSelected ? -20 : 0,
+      toValue: isSelected ? -25 : 0,
       useNativeDriver: true,
     }).start();
   }, [isSelected]);
@@ -133,18 +133,14 @@ const MiddleTabButton = ({ children, onPress, accessibilityState }) => {
       }}
       onPress={onPress}
     >
-      <View
-        style={{
-          width: 55,
-          height: 55,
-          borderRadius: 35,
-          backgroundColor: '#04B5DF',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+      <LinearGradient
+        colors={['#02B2DD', '#12D2C7']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.middleButton}
       >
         <Ionicons name="paper-plane-outline" size={34} color="white" />
-      </View>
+      </LinearGradient>
     </TouchableOpacity>
   );
 };
@@ -159,6 +155,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
     elevation: 5,
+  },
+  middleButton: {
+    width: 55,
+    height: 55,
+    borderRadius: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

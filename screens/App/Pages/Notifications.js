@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, Pressable } from 'react-native';
 import { AntDesign, Entypo,FontAwesome5 } from '@expo/vector-icons';
 import notificationsData from './notificationData.json';
-import { useNavigation } from '@react-navigation/native';
-import { Menu, MenuOptions, MenuOption, MenuTrigger, MenuProvider } from 'react-native-popup-menu';
+import { useNavigation } from '@react-navigation/native'
 import { Swipeable } from 'react-native-gesture-handler';
 
 export default function Notifications() {
     const navigation = useNavigation();
+    const [notificationsData, setNotificationsData] = useState(initialNotificationsData);
 
     const NavBack = () => {
         navigation.goBack();
@@ -17,20 +17,22 @@ export default function Notifications() {
     }
 
     const handleDelete = (index) => {
-        notificationsData.splice(index, 1);
+        const updatedNotifications = [...notificationsData];
+        updatedNotifications.splice(index, 1);
+        setNotificationsData(updatedNotifications);
     }
 
-    const renderRightActions = () => {
+    const renderRightActions = (index) => {
         return (
-            <TouchableOpacity onPress={() => { }} style={styles.deleteContainer}>
-                <FontAwesome5 name="trash" size={24} color="black" /> 
+            <TouchableOpacity onPress={() => handleDelete(index)} style={styles.deleteContainer}>
+                <FontAwesome5 name="trash" size={24} color="black" />
             </TouchableOpacity>
         );
     }
 
     const renderItem = ({ item, index }) => {
         return (
-            <Swipeable renderRightActions={renderRightActions}>
+            <Swipeable renderRightActions={() => renderRightActions(index)}>
                 <View style={styles.notification}>
                     <Text style={styles.notificationTitle}>{item.title}</Text>
                     <Text style={styles.notificationMessage}>{item.message}</Text>
@@ -130,7 +132,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: 75,
         height: '90%',
-        borderRadius:2
+        borderRadius: 2
     },
     deleteText: {
         color: 'white',
